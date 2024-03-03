@@ -2,26 +2,42 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logofav from "../assets/logofav.png";
 import styles from "../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
             <Container>
-                <Navbar.Brand>
-                    <img src={logofav} alt="logo" height="95" />
-                </Navbar.Brand>
+                <NavLink to="/">
+                    <Navbar.Brand>
+                        <img src={logofav} alt="logo" height="95" />
+                    </Navbar.Brand>
+                </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
-                        <Nav.Link>
+                        <NavLink
+                            exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            to="/"
+                        >
                             <i class="fa-brands fa-space-awesome"></i>Home
-                        </Nav.Link>
-                        <Nav.Link>
+                        </NavLink>
+                        <NavLink
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            to="/signin"
+                        >
                             <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign in
-                        </Nav.Link>
-                        <Nav.Link>
+                        </NavLink>
+                        <NavLink
+                            className={styles.NavLink}
+                            activeClassName={styles.Active}
+                            to="/signup"
+                        >
                             <i class="fa-solid fa-user-pen"></i>Sign up
-                        </Nav.Link>
+                        </NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
