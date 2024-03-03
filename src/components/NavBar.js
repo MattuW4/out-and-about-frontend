@@ -22,21 +22,21 @@ const NavBar = () => {
                             activeClassName={styles.Active}
                             to="/"
                         >
-                            <i class="fa-brands fa-space-awesome"></i>Home
+                            <i className="fa-brands fa-space-awesome"></i>Home
                         </NavLink>
                         <NavLink
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             to="/signin"
                         >
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign in
+                            <i className="fa-solid fa-arrow-right-to-bracket"></i>Sign in
                         </NavLink>
                         <NavLink
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             to="/signup"
                         >
-                            <i class="fa-solid fa-user-pen"></i>Sign up
+                            <i className="fa-solid fa-user-pen"></i>Sign up
                         </NavLink>
                     </Nav>
                 </Navbar.Collapse>
