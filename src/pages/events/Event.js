@@ -20,6 +20,7 @@ const Event = (props) => {
         image,
         updated_at,
         eventPage,
+        category,
 
     } = props;
 
@@ -46,7 +47,9 @@ const Event = (props) => {
             </Link>
             <Card.Body>
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {description && <Card.Text>{description}</Card.Text>}
+                {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                {category && <Card.Text>Category: {category}</Card.Text>}
+                {description && <Card.Text>{description}</Card.Text>}                
                 <div className={styles.EventBar}>
                     {is_owner ? (
                         <OverlayTrigger placement="top" overlay={<Tooltip>You can't attend the event you own!</Tooltip>}>
