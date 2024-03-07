@@ -77,7 +77,7 @@ function EventCreateForm() {
                 setErrors(err.response?.data);
             }
         }
-    }
+    };
 
 
     const textFields = (
@@ -120,6 +120,13 @@ function EventCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.event_date?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+
+
             <Form.Group controlId="category">
                 <Form.Label>Event Category</Form.Label>
                 <Form.Control
@@ -186,7 +193,7 @@ function EventCreateForm() {
                                     className="d-flex justify-content-center"
                                     htmlFor="image-upload"
                                 >
-                                    <Asset src={Upload} message="Click or tap to upload an event poster" />
+                                    <Asset style={{height: "50%", objectFit: "contain"}} src={Upload} message="Click or tap to upload an event poster" />
                                 </Form.Label>
                             )}
 
@@ -197,6 +204,11 @@ function EventCreateForm() {
                                 onChange={handleChangeImage}
                                 ref={imageInput}
                             />
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
 
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
