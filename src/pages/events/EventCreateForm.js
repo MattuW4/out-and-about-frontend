@@ -193,7 +193,7 @@ function EventCreateForm() {
                                     className="d-flex justify-content-center"
                                     htmlFor="image-upload"
                                 >
-                                    <Asset style={{height: "50%", objectFit: "contain"}} src={Upload} message="Click or tap to upload an event poster" />
+                                    <Asset  src={Upload} message="Click or tap to upload an event poster" />
                                 </Form.Label>
                             )}
 
