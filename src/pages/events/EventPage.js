@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Event from "./Event";
 
@@ -34,7 +34,7 @@ function EventPage() {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles for mobile</p>
-                <Event {...event.results[0]} setEvents={setEvent} EventPage />
+                <Event {...event.results[0]} setEvents={setEvent} eventPage />
                 <Container className={appStyles.Content}>
                     Comments
                 </Container>

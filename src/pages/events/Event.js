@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import styles from "../../styles/Event.module.css";
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import Avatar from '../../components/Avatar';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import Avatar from "../../components/Avatar";
 
 const Event = (props) => {
     const {
@@ -26,7 +26,6 @@ const Event = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
-    const history = useHistory();
 
     return (
         <Card className={styles.Event}>
