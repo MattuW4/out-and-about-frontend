@@ -85,7 +85,7 @@ const Event = (props) => {
                 {description && <Card.Text>{description}</Card.Text>}
                 <div className={styles.EventBar}>
                     {is_owner ? (
-                        <OverlayTrigger placement="top" overlay={<Tooltip>You can't attend the event you own!</Tooltip>}>
+                        <OverlayTrigger placement="top" overlay={<Tooltip>You can't attend an event you created!</Tooltip>}>
                             <i className="fa-regular fa-circle-check" />
                         </OverlayTrigger>
                     ) : attend_id ? (
