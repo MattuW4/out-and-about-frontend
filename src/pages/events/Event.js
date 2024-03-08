@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Event = (props) => {
     const {
@@ -21,11 +22,44 @@ const Event = (props) => {
         updated_at,
         eventPage,
         category,
+        setEvents,
 
     } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const handleAttend = async () => {
+        try {
+            const { data } = await axiosRes.post("/attending/", { event: id });
+            setEvents((prevEvents) => ({
+                ...prevEvents,
+                results: prevEvents.results.map((event) => {
+                    return event.id === id
+                        ? { ...event, attending_count: event.attending_count + 1, attend_id: data.id }
+                        : event;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const handleUnAttend = async () => {
+        try {
+            await axiosRes.delete(`/attending/${attend_id}`);
+            setEvents((prevEvents) => ({
+                ...prevEvents,
+                results: prevEvents.results.map((event) => {
+                    return event.id === id
+                        ? { ...event, attending_count: event.attending_count - 1, attend_id: null }
+                        : event;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <Card className={styles.Event}>
@@ -48,18 +82,18 @@ const Event = (props) => {
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {event_date && <Card.Text> Date: {event_date}</Card.Text>}
                 {category && <Card.Text>Category: {category}</Card.Text>}
-                {description && <Card.Text>{description}</Card.Text>}                
+                {description && <Card.Text>{description}</Card.Text>}
                 <div className={styles.EventBar}>
                     {is_owner ? (
                         <OverlayTrigger placement="top" overlay={<Tooltip>You can't attend the event you own!</Tooltip>}>
                             <i className="fa-regular fa-circle-check" />
                         </OverlayTrigger>
                     ) : attend_id ? (
-                        <span onClick={() => { }}>
-                            <i className={`fa-regular fa-circle-check ${styles.Going}`} />
+                        <span onClick={handleUnAttend}>
+                            <i className={`fa-solid fa-circle-check ${styles.Going}`} />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleAttend}>
                             <i className={`fa-regular fa-circle-check ${styles.GoingOutline}`} />
                         </span>
                     ) : (

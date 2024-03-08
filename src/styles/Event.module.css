@@ -12,13 +12,13 @@
   }
   
   .Going {
-    color: #f85032;
+    color: #1fcf2e;
   }
   
   .Going:hover {
-    color: #2142b2;
+    color: #8c52ff;
   }
   
   .GoingOutline:hover {
-    color: #f85032;
+    color: #1fcf2e;
   }
