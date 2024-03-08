@@ -7,12 +7,15 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import EventCreateForm from "./pages/events/EventCreateForm";
 import EventPage from "./pages/events/EventPage";
+import EventsPage from "./pages/events/EventsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 
 
 
 function App() {
-
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
 
@@ -20,7 +23,22 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => (
+            <EventsPage message="No results found. Adjust keyword for your search." />
+          )}
+          />
+          <Route exact path="/whatson" render={() => (
+            <EventsPage message="No results found. Adjust keyword for your search or subscribe to a user."
+              filter={`owner__subscribed__owner__profile=${profile_id}&`}
+            />
+          )}
+          />
+          <Route exact path="/attending" render={() => (
+            <EventsPage message="No results found. Adjust keyword for your search or select 'attending' on an event."
+              filter={`attending__owner__profile=${profile_id}&ordering=-attending__created_at&`}
+            />
+          )}
+          />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
