@@ -9,6 +9,7 @@ import EventCreateForm from "./pages/events/EventCreateForm";
 import EventPage from "./pages/events/EventPage";
 import EventsPage from "./pages/events/EventsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import EventEditForm from "./pages/events/EventEditForm";
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
+          <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route render={() => <p>Whoops! Page not found...</p>} />
         </Switch>
       </Container>
