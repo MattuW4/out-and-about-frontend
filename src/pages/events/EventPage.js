@@ -8,19 +8,28 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Event from "./Event";
+import Comment from '../comments/Comment';
+
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function EventPage() {
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
 
+    const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+    const [comments, setComments] = useState({ results: [] });
+
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: event }] = await Promise.all([
+                const [{ data: event }, { data: comments }] = await Promise.all([
                     axiosReq.get(`/events/${id}`),
+                    axiosReq.get(`/comments/?events=${id}`)
                 ]);
                 setEvent({ results: [event] });
-                console.log(event)
+                setComments(comments)
             } catch (err) {
                 console.log(err);
             }
@@ -36,7 +45,29 @@ function EventPage() {
                 <p>Popular profiles for mobile</p>
                 <Event {...event.results[0]} setEvents={setEvent} eventPage />
                 <Container className={appStyles.Content}>
-                    Comments
+                    {currentUser ? (
+                        <CommentCreateForm
+                            profile_id={currentUser.profile_id}
+                            profileImage={profile_image}
+                            event={id}
+                            setPost={setEvent}
+                            setComments={setComments}
+                        />
+                    ) : comments.results.length ? (
+                        "Comments"
+                    ) : null}
+                    {comments.results.length ? (
+                        comments.results.map((comment) => (
+                            <Comment key={comment.id} {...comment}
+                                setEvent={setEvent}
+                                setComments={setComments}
+                            />
+                        ))
+                    ) : currentUser ? (
+                        <span>No comments yet, be the first to comment!</span>
+                    ) : (
+                        <span>No comments... yet</span>
+                    )}
                 </Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
