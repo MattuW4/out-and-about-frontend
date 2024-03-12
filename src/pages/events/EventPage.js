@@ -13,6 +13,10 @@ import Comment from '../comments/Comment';
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+
 function EventPage() {
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
@@ -43,7 +47,7 @@ function EventPage() {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles for mobile</p>
-                <Event {...event.results[0]} setEvents={setEvent} eventPage />
+                <Event {...event.results[0]} setPosts={setEvent} eventPage />
                 <Container className={appStyles.Content}>
                     {currentUser ? (
                         <CommentCreateForm
@@ -57,12 +61,20 @@ function EventPage() {
                         "Comments"
                     ) : null}
                     {comments.results.length ? (
-                        comments.results.map((comment) => (
-                            <Comment key={comment.id} {...comment}
-                                setEvent={setEvent}
-                                setComments={setComments}
-                            />
-                        ))
+                        <InfiniteScroll
+                            children={comments.results.map((comment) => (
+                                <Comment
+                                    key={comment.id}
+                                    {...comment}
+                                    setEvent={setEvent}
+                                    setComments={setComments}
+                                />
+                            ))}
+                            dataLength={comments.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!comments.next}
+                            next={() => fetchMoreData(comments, setComments)}
+                        />
                     ) : currentUser ? (
                         <span>No comments yet, be the first to comment!</span>
                     ) : (
