@@ -32,3 +32,15 @@ export const subscribeHelper = (profile, clickedProfile, subscribing_id) => {
             // the user owns, so just return it unchanged
             profile;
 };
+
+export const unsubscribeHelper = (profile, clickedProfile) => {
+    return profile.id === clickedProfile.id
+        ? {
+            ...profile,
+            subscribers_count: profile.subscribers_count - 1,
+            subscribing_id: null,
+        }
+        : profile.is_owner
+            ? { ...profile, subscribing_count: profile.subscribing_count - 1 }
+            : profile;
+}

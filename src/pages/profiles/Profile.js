@@ -14,7 +14,7 @@ const Profile = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const { handleSubscribe } = useSetProfileData();
+    const { handleSubscribe, handleUnsubscribe } = useSetProfileData();
 
     return (
         <div
@@ -35,7 +35,7 @@ const Profile = (props) => {
                     (subscribing_id ? (
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                            onClick={() => { }}
+                            onClick={() => handleUnsubscribe(profile)}
                         >
                             unsubscribe
                         </Button>

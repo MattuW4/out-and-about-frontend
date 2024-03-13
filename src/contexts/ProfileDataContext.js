@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useCurrentUser } from "./CurrentUserContext";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { subscribeHelper } from "../utils/utils";
+import { subscribeHelper, unsubscribeHelper } from "../utils/utils";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -43,6 +43,28 @@ export const ProfileDataProvider = ({ children }) => {
         }
     };
 
+    const handleUnsubscribe = async (clickedProfile) => {
+        try {
+            axiosRes.delete(`/subscribers/${clickedProfile.subscribing_id}/`);
+            setProfileData((prevState) => ({
+                ...prevState,
+                pageProfile: {
+                    results: prevState.pageProfile.results.map((profile) =>
+                        unsubscribeHelper(profile, clickedProfile)
+                    ),
+                },
+                popularProfiles: {
+                    ...prevState.popularProfiles,
+                    results: prevState.popularProfiles.results.map((profile) =>
+                        unsubscribeHelper(profile, clickedProfile)
+                    ),
+                },
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
         const handleMount = async () => {
             try {
@@ -62,7 +84,7 @@ export const ProfileDataProvider = ({ children }) => {
 
     return (
         <ProfileDataContext.Provider value={profileData}>
-            <SetProfileDataContext.Provider value={{setProfileData, handleSubscribe}}>
+            <SetProfileDataContext.Provider value={{ setProfileData, handleSubscribe, handleUnsubscribe }}>
                 {children}
             </SetProfileDataContext.Provider>
         </ProfileDataContext.Provider>
