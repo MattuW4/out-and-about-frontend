@@ -16,9 +16,15 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Button, Image } from "react-bootstrap";
+import { fetchMoreData } from "../../utils/utils";
+import Event from "../events/Event";
+import InfiniteScroll from "react-infinite-scroll-component";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [profileEvents, setProfileEvents] = useState({ results: [] });
+
     const currentUser = useCurrentUser();
     const { id } = useParams();
     const setProfileData = useSetProfileData();
@@ -29,13 +35,16 @@ function ProfilePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }] = await Promise.all([
-                    axiosReq.get(`/profiles/${id}/`),
-                ]);
+                const [{ data: pageProfile }, { data: profileEvents }] =
+                    await Promise.all([
+                        axiosReq.get(`/profiles/${id}/`),
+                        axiosReq.get(`/events/?owner__profile=${id}`),
+                    ]);
                 setProfileData((prevState) => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] },
                 }));
+                setProfileEvents(profileEvents);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -98,8 +107,24 @@ function ProfilePage() {
     const mainProfileEvents = (
         <>
             <hr />
-            <p className="text-center">Profile owner's events</p>
+            <p className="text-center">{profile?.owner}'s events</p>
             <hr />
+            {profileEvents.results.length ? (
+                <InfiniteScroll
+                    children={profileEvents.results.map((event) => (
+                        <Event key={event.id} {...event} setEvents={setProfileEvents} />
+                    ))}
+                    dataLength={profileEvents.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profileEvents.next}
+                    next={() => fetchMoreData(profileEvents, setProfileEvents)}
+                />
+            ) : (
+                <Asset
+                    src={NoResults}
+                    message={`No results found, ${profile?.owner} hasn't created an event yet.`}
+                />
+            )}
         </>
     );
 
