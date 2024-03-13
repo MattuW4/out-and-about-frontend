@@ -31,7 +31,7 @@ function EventPage() {
             try {
                 const [{ data: event }, { data: comments }] = await Promise.all([
                     axiosReq.get(`/events/${id}`),
-                    axiosReq.get(`/comments/?events=${id}`)
+                    axiosReq.get(`/comments/?event=${id}`),
                 ]);
                 setEvent({ results: [event] });
                 setComments(comments)
@@ -48,14 +48,14 @@ function EventPage() {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
-                <Event {...event.results[0]} setPosts={setEvent} eventPage />
+                <Event {...event.results[0]} setEvents={setEvent} eventPage />
                 <Container className={appStyles.Content}>
                     {currentUser ? (
                         <CommentCreateForm
                             profile_id={currentUser.profile_id}
                             profileImage={profile_image}
                             event={id}
-                            setPost={setEvent}
+                            setEvent={setEvent}
                             setComments={setComments}
                         />
                     ) : comments.results.length ? (

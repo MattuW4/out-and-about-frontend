@@ -12,8 +12,8 @@ function CommentCreateForm(props) {
     const { event, setEvent, setComments, profileImage, profile_id } = props;
     const [content, setContent] = useState("");
 
-    const handleChange = (event) => {
-        setContent(event.target.value);
+    const handleChange = (e) => {
+        setContent(e.target.value);
     };
 
     const handleSubmit = async (e) => {
