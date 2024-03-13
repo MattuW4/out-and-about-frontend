@@ -27,7 +27,7 @@ function ProfilePage() {
 
     const currentUser = useCurrentUser();
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+    const {setProfileData, handleSubscribe} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username;
@@ -93,7 +93,7 @@ function ProfilePage() {
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                                onClick={() => { }}
+                                onClick={() => handleSubscribe(profile)}
                             >
                                 subscribe
                             </Button>
