@@ -70,13 +70,13 @@ function EventsPage({ message, filter = "" }) {
                 <Form.Control
                     size="sm"
                     as="select"
-                    placeholder="Search by category..."
+                    placeholder="Search by category"
                     value={category}
                     onChange={(event) => setCategory(event.target.value)}
                 >
                     <option key="blankChoice" hidden value>
                         {" "}
-                        Search by category...{" "}
+                        Search by category{" "}
                     </option>
                     <option>Music</option>
                     <option>Electronic</option>

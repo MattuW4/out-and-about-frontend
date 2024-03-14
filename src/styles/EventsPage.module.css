@@ -12,7 +12,8 @@
 }
 
 .SearchBar select {
-  color: #2f4858;
+  border-radius: 20px;
+  color: #242a3d;;
   margin-bottom: 16px;
   width: 35%;
   margin-left: 20px;
