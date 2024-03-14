@@ -66,10 +66,9 @@ function EventsPage({ message, filter = "" }) {
                         className="mr-sm-2"
                         placeholder="Search events"
                     />
-                </Form>
+                
                 <Form.Control
                     size="sm"
-                    className="mr-sm-2"
                     as="select"
                     placeholder="Search by category..."
                     value={category}
@@ -88,6 +87,7 @@ function EventsPage({ message, filter = "" }) {
                     <option>Live-band</option>
                     <option>Soul/funk</option> 
                 </Form.Control>
+                </Form>
 
 
                 {hasLoaded ? (
