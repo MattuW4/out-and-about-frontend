@@ -26,11 +26,12 @@ function EventsPage({ message, filter = "" }) {
     const { pathname } = useLocation();
 
     const [query, setQuery] = useState("");
+    const [category, setCategory] = useState("");
 
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const { data } = await axiosReq.get(`/events/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(`/events/?${filter}search=${query}&category=${category}`);
                 setEvents(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -47,7 +48,7 @@ function EventsPage({ message, filter = "" }) {
             clearTimeout(timer);
         };
 
-    }, [filter, pathname, query]);
+    }, [filter, pathname, category, query]);
 
     return (
         <Row className="h-100">
@@ -66,6 +67,27 @@ function EventsPage({ message, filter = "" }) {
                         placeholder="Search events"
                     />
                 </Form>
+                <Form.Control
+                    size="sm"
+                    className="mr-sm-2"
+                    as="select"
+                    placeholder="Search by category..."
+                    value={category}
+                    onChange={(event) => setCategory(event.target.value)}
+                >
+                    <option key="blankChoice" hidden value>
+                        {" "}
+                        Search by category...{" "}
+                    </option>
+                    <option>Music</option>
+                    <option>Electronic</option>
+                    <option>Garage</option>
+                    <option>House</option>
+                    <option>DnB</option>
+                    <option>Hip-Hop</option>
+                    <option>Live-band</option>
+                    <option>Soul/funk</option> 
+                </Form.Control>
 
 
                 {hasLoaded ? (
