@@ -13,7 +13,7 @@
 
 .SearchBar select {
   border-radius: 20px;
-  color: #242a3d;;
+  color: #242a3d;
   margin-bottom: 16px;
   width: 35%;
   margin-left: 20px;
@@ -31,3 +31,9 @@
   cursor: default;
   color: #cfced3;
 }
+
+.popular-profiles {
+  position:sticky;
+}
+
+
