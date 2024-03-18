@@ -14,6 +14,9 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
+import ReviewsPage from "./pages/reviews/ReviewsPage";
+
 
 
 function App() {
@@ -63,6 +66,8 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          <Route exact path="/reviews" render={() => <ReviewsPage /> } />
+          <Route exact path="/reviews/:id/create" render={() => <ReviewCreateForm />} />
           <Route render={() => <p>Whoops! Page not found...</p>} />
         </Switch>
       </Container>
