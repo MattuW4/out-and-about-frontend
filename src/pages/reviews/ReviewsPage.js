@@ -29,10 +29,13 @@ function ReviewsPage({ message, filter = "" }) {
     const [query, setQuery] = useState("");
     const [category, setCategory] = useState("");
 
+    const current = new Date();
+    const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
+
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const { data } = await axiosReq.get(`/events/?${filter}search=${query}&category=${category}`);
+                const { data } = await axiosReq.get(`/events/?${filter}search=${query}&category=${category}&event_date__lte=${date}`);
                 setEvents(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -49,7 +52,7 @@ function ReviewsPage({ message, filter = "" }) {
             clearTimeout(timer);
         };
 
-    }, [filter, pathname, category, query]);
+    }, [filter, pathname, category, query, date]);
 
     return (
         <Row className="h-100">
