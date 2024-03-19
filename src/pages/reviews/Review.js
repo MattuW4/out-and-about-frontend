@@ -13,17 +13,10 @@ const Event = (props) => {
         owner,
         profile_id,
         profile_image,
-        comments_count,
-        attending_count,
-        attend_id,
+        review,
         title,
-        description,
         event_date,
-        image,
-        updated_at,
         eventPage,
-        category,
-        setEvents,
 
     } = props;
 
@@ -45,37 +38,6 @@ const Event = (props) => {
         }
     };
 
-    const handleAttend = async () => {
-        try {
-            const { data } = await axiosRes.post("/attending/", { event: id });
-            setEvents((prevEvents) => ({
-                ...prevEvents,
-                results: prevEvents.results.map((event) => {
-                    return event.id === id
-                        ? { ...event, attending_count: event.attending_count + 1, attend_id: data.id }
-                        : event;
-                }),
-            }));
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    const handleUnAttend = async () => {
-        try {
-            await axiosRes.delete(`/attending/${attend_id}`);
-            setEvents((prevEvents) => ({
-                ...prevEvents,
-                results: prevEvents.results.map((event) => {
-                    return event.id === id
-                        ? { ...event, attending_count: event.attending_count - 1, attend_id: null }
-                        : event;
-                }),
-            }));
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     return (
         <Card className={styles.Event}>
@@ -86,7 +48,7 @@ const Event = (props) => {
                         {owner}
                     </Link>
                     <div className="d=flex align-items-center">
-                        
+
                         {is_owner && eventPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
@@ -96,11 +58,18 @@ const Event = (props) => {
                     </div>
                 </Media>
             </Card.Body>
-            <Card.Body>
-                {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {event_date && <Card.Text> Date: {event_date}</Card.Text>}
-                
-            </Card.Body>
+            <Link to={`/events/${id}`}>
+                <Card.Body>
+                    {title && <Card.Title className="text-center">{title}</Card.Title>}
+                    {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                    <p>
+                        Review:
+                        {review}
+                    </p>
+
+                </Card.Body>
+            </Link>
+
         </Card>
     );
 };

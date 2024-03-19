@@ -15,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
+import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 
 
 
@@ -71,10 +72,16 @@ function App() {
             render={() => (
               <ReviewsPage
                 message="Try adjusting the search keyword or add a review." 
-                filter={`?ordering=-event_date`}
+                filter={`attending__owner__profile=${profile_id}&ordering=-attending__created_at&`}
               />
             )}
           />
+          <Route
+            exact
+            path="/contact/create/"
+            render={() => <ContactCreateForm />}
+          />
+          
           <Route render={() => <p>Whoops! Page not found...</p>} />
         </Switch>
       </Container>
