@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ReviewsPage from "./pages/reviews/ReviewsPage";
 
 
 
@@ -63,6 +64,16 @@ function App() {
             exact
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
+          />
+          <Route
+            exact
+            path="/reviews"
+            render={() => (
+              <ReviewsPage
+                message="Try adjusting the search keyword or add a review." 
+                filter={`?ordering=-event_date`}
+              />
+            )}
           />
           <Route render={() => <p>Whoops! Page not found...</p>} />
         </Switch>
