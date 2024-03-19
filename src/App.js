@@ -16,6 +16,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
+import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 
 
 
@@ -75,6 +76,11 @@ function App() {
                 filter={`attending__owner__profile=${profile_id}&ordering=-attending__created_at&`}
               />
             )}
+          />
+          <Route
+            exact
+            path="/reviews/:id/create/"
+            render={() => <ReviewCreateForm />}
           />
           <Route
             exact

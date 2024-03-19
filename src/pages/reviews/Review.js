@@ -2,10 +2,12 @@ import React from "react";
 import styles from "../../styles/Event.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import btnStyles from "../../styles/Button.module.css";
+import { Rating } from "react-simple-star-rating";
 
 const Event = (props) => {
     const {
@@ -13,10 +15,10 @@ const Event = (props) => {
         owner,
         profile_id,
         profile_image,
-        review,
         title,
         event_date,
-        eventPage,
+        average_rating,
+        review_count,
 
     } = props;
 
@@ -24,19 +26,6 @@ const Event = (props) => {
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
-    const handleEdit = async () => {
-        history.push(`/events/${id}/edit`)
-    };
-
-    const handleDelete = async () => {
-        try {
-            await axiosRes.delete(`/events/${id}/`);
-            history.goBack();
-
-        } catch (err) {
-            console.log(err)
-        }
-    };
 
 
     return (
@@ -47,28 +36,34 @@ const Event = (props) => {
                         <Avatar src={profile_image} height={55} />
                         {owner}
                     </Link>
-                    <div className="d=flex align-items-center">
-
-                        {is_owner && eventPage && (
-                            <MoreDropdown
-                                handleEdit={handleEdit}
-                                handleDelete={handleDelete}
-                            />
-                        )}
-                    </div>
+                    <Link to={`/events/${id}`}>
+                        {title && <Card.Title className="text-center">{title}</Card.Title>}
+                        {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                    </Link>
+                    <span className={`${styles.Title}`}>
+                        Number of reviews: {" "} {review_count}
+                        Rating:
+                        {" "}
+                        <Rating readonly initialValue={average_rating} size={25} />
+                    </span>
                 </Media>
-            </Card.Body>
-            <Link to={`/events/${id}`}>
-                <Card.Body>
-                    {title && <Card.Title className="text-center">{title}</Card.Title>}
-                    {event_date && <Card.Text> Date: {event_date}</Card.Text>}
-                    <p>
-                        Review:
-                        {review}
-                    </p>
 
-                </Card.Body>
-            </Link>
+            </Card.Body>
+
+            <Card.Body>
+
+                {!is_owner && (
+                    <Button
+                        className={btnStyles.Button}
+                        onClick={() => history.push(`/reviews/${id}/create`)}
+                        aria-label="create-review"
+                    >
+                        Leave a review
+                    </Button>
+                )}
+
+            </Card.Body>
+
 
         </Card>
     );
