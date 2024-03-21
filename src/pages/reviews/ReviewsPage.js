@@ -18,10 +18,12 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function ReviewsPage({ message, filter = "" }) {
 
+    const [reviews, setReviews] = useState({ results: [] });
     const [events, setEvents] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -29,10 +31,21 @@ function ReviewsPage({ message, filter = "" }) {
     const [query, setQuery] = useState("");
     const [category, setCategory] = useState("");
 
+    const { id } = useParams();
+
     const current = new Date();
     const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
 
     useEffect(() => {
+        const fetchReviews = async () => {
+            try {
+                const { data } = await axiosReq.get(`/reviews/?artist=${id}`);
+                setReviews(data);
+                setHasLoaded(true);
+            } catch (err) {
+            }
+        };
+
         const fetchEvents = async () => {
             try {
                 const { data } = await axiosReq.get(`/events/?${filter}search=${query}&category=${category}&event_date__lte=${date}`);
@@ -46,13 +59,14 @@ function ReviewsPage({ message, filter = "" }) {
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchEvents();
+            fetchReviews();
         }, 500);
 
         return () => {
             clearTimeout(timer);
         };
 
-    }, [filter, pathname, category, query, date]);
+    }, [filter, pathname, category, query, date, id]);
 
     return (
         <Row className="h-100">
@@ -108,6 +122,18 @@ function ReviewsPage({ message, filter = "" }) {
                                 hasMore={!!events.next}
                                 next={() => fetchMoreData(events, setEvents)}
                             />
+                            // {reviews.results.length ? (
+                            // <InfiniteScroll
+                            //     children={
+                            //         reviews.results.map((artist) => (
+                            //         <Review key={review.id} {...review} setReviews={setReviews} />
+                            //     ))
+                            // }
+                            //     dataLength={reviews.results.length}
+                            //     loader={<Asset />}
+                            //     hasMore={!!reviews.next}
+                            //     next={() => fetchMoreData(reviews, setReviews)}
+                            // />
 
                         ) : (
                             <Container className={appStyles.Content}>
@@ -126,6 +152,6 @@ function ReviewsPage({ message, filter = "" }) {
             </Col>
         </Row>
     );
-}
+};
 
 export default ReviewsPage;

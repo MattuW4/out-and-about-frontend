@@ -4,8 +4,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
 
@@ -18,7 +16,7 @@ const Event = (props) => {
         title,
         event_date,
         average_rating,
-        review_count,
+        reviews_count,
 
     } = props;
 
@@ -41,9 +39,8 @@ const Event = (props) => {
                         {event_date && <Card.Text> Date: {event_date}</Card.Text>}
                     </Link>
                     <span className={`${styles.Title}`}>
-                        Number of reviews: {" "} {review_count}
+                        Number of reviews: {reviews_count}
                         Rating:
-                        {" "}
                         <Rating readonly initialValue={average_rating} size={25} />
                     </span>
                 </Media>
