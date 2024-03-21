@@ -12,7 +12,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
 
-import Event from "../events/Event";
 import Review from "./Review";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -37,14 +36,6 @@ function ReviewsPage({ message, filter = "" }) {
     const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
 
     useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const { data } = await axiosReq.get(`/reviews/?artist=${id}`);
-                setReviews(data);
-                setHasLoaded(true);
-            } catch (err) {
-            }
-        };
 
         const fetchEvents = async () => {
             try {
@@ -59,7 +50,6 @@ function ReviewsPage({ message, filter = "" }) {
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchEvents();
-            fetchReviews();
         }, 500);
 
         return () => {
@@ -122,19 +112,6 @@ function ReviewsPage({ message, filter = "" }) {
                                 hasMore={!!events.next}
                                 next={() => fetchMoreData(events, setEvents)}
                             />
-                            // {reviews.results.length ? (
-                            // <InfiniteScroll
-                            //     children={
-                            //         reviews.results.map((artist) => (
-                            //         <Review key={review.id} {...review} setReviews={setReviews} />
-                            //     ))
-                            // }
-                            //     dataLength={reviews.results.length}
-                            //     loader={<Asset />}
-                            //     hasMore={!!reviews.next}
-                            //     next={() => fetchMoreData(reviews, setReviews)}
-                            // />
-
                         ) : (
                             <Container className={appStyles.Content}>
                                 <Asset src={NoResults} message={message} />

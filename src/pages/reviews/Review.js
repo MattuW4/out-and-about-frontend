@@ -59,6 +59,18 @@ const Event = (props) => {
                     </Button>
                 )}
 
+                <Button
+                    className={btnStyles.Button}
+                    onClick={() => history.push(`/reviews/${id}`)}
+                    aria-label="view-reviews"
+                >
+                    Read the reviews
+                </Button>
+
+
+            </Card.Body>
+            <Card.Body>
+
             </Card.Body>
 
 
