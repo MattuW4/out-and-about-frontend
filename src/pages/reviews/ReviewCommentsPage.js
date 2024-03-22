@@ -9,16 +9,15 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Media } from "react-bootstrap";
+import { Card, Media } from "react-bootstrap";
 import styles from "../../styles/Comment.module.css";
 import { Rating } from "react-simple-star-rating";
 
-function ReviewCommentsPage() {
+function ReviewCommentsPage(props) {
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
 
     const currentUser = useCurrentUser();
-    const profile_image = currentUser?.profile_image;
     const [reviews, setReviews] = useState({ results: [] });
 
     useEffect(() => {
@@ -37,43 +36,46 @@ function ReviewCommentsPage() {
         };
 
         handleMount();
-    }, [id]);
+    }, [currentUser, id]);
 
     return (
         <>
-            <Media>
+            <Card className={styles.Event}>
+                <Card.Body>
+                    <Media>
 
-                <Media.Body className="align-self-center ml-2">
-                    
-                    
-                    <Row className="h-100">
-                        <Col className="py-2 p-0 p-lg-2" lg={8}>
-                            <Container className={appStyles.Content}>
+                        <Media.Body className="align-self-center ml-2">
 
 
-                                {reviews.results.length ? (
-                                    reviews.results.map((review) => (
-                                        
-
-                                        <p key={review.id}>
-                                            <span className={styles.Owner}>{review.owner}'s review:</span>
-                                            <span className={styles.Date}>{review.review}</span>    
-                                            <span>Rating: <Rating readonly initialValue={review.rating} size={25}/></span>                                         
-                                        </p>
-                                    ))
-                                ) : currentUser ? (
-                                    <span>No reviews yet, be the first to review!</span>
-                                ) : (
-                                    <span>No reviews...yet!</span>
-                                )}
-                            </Container>
+                            <Row className="h-100">
+                                <Col className="py-2 p-0 p-lg-2" lg={8}>
 
 
-                        </Col>
+                                        {reviews.results.length ? (
+                                            reviews.results.map((review) => (
 
-                    </Row>
-                </Media.Body>
-            </Media>
+
+                                                <p key={review.id}>
+                                                    <span className={styles.Owner}>{review.owner}'s review:</span>
+                                                    <span className={styles.Date}>{review.review}</span>
+                                                    <span>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
+                                                    <span className={styles.Date}>{review.created_at}</span>
+                                                </p>
+                                            ))
+                                        ) : currentUser ? (
+                                            <span>No reviews yet, be the first to review!</span>
+                                        ) : (
+                                            <span>No reviews...yet!</span>
+                                        )}
+
+
+                                </Col>
+
+                            </Row>
+                        </Media.Body>
+                    </Media>
+                </Card.Body>
+            </Card>
         </>
     );
 }

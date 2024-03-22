@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "../../styles/Event.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Card, Media } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
@@ -20,8 +19,6 @@ const Event = (props) => {
 
     } = props;
 
-    const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
 
@@ -39,7 +36,7 @@ const Event = (props) => {
                         {event_date && <Card.Text> Date: {event_date}</Card.Text>}
                     </Link>
                     <span className={`${styles.Title}`}>
-                        Number of reviews: {reviews_count}
+                        Reviews: {reviews_count}
                         Rating:
                         <Rating readonly initialValue={average_rating} size={25} />
                     </span>
@@ -49,15 +46,14 @@ const Event = (props) => {
 
             <Card.Body>
 
-                {!is_owner && (
-                    <Button
-                        className={btnStyles.Button}
-                        onClick={() => history.push(`/reviews/${id}/create`)}
-                        aria-label="create-review"
-                    >
-                        Leave a review
-                    </Button>
-                )}
+                <Button
+                    className={btnStyles.Button}
+                    onClick={() => history.push(`/reviews/${id}/create`)}
+                    aria-label="create-review"
+                >
+                    Leave a review
+                </Button>
+
 
                 <Button
                     className={btnStyles.Button}

@@ -22,7 +22,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function ReviewsPage({ message, filter = "" }) {
 
-    const [reviews, setReviews] = useState({ results: [] });
+    // const [reviews, setReviews] = useState({ results: [] });
     const [events, setEvents] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
