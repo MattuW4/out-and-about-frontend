@@ -44,10 +44,12 @@ const ContactCreateForm = () => {
             await axiosReq.post("/contacts/", formData);
             history.goBack();
             handleShow();
+            console.log(event)
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
+            console.log(err);
         }
     };
 
