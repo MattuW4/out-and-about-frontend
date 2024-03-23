@@ -18,6 +18,7 @@ import ReviewsPage from "./pages/reviews/ReviewsPage";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ReviewCommentsPage from "./pages/reviews/ReviewCommentsPage";
+import NotFound from "./pages/notfound/NotFound";
 
 
 
@@ -94,7 +95,8 @@ function App() {
             render={() => <ContactCreateForm />}
           />
           
-          <Route render={() => <p>Whoops! Page not found...</p>} />
+          {/* <Route render={() => <p>Whoops! Page not found...</p>} /> */}
+          <Route path="*" render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>

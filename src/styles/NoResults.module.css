@@ -1,0 +1,17 @@
+.Error404 {
+    text-align: center;
+    font-size: 5rem;
+}
+.NotFoundText {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.Button {
+    background-color: #21ca89;
+    border-color: #21ca89;
+    color: black;
+}
+
+.Link {
+    color: black;
+}
