@@ -54,7 +54,6 @@ const Event = (props) => {
                     ><Button
                         className={`${btnStyles.Button} ${btnStyles.Form}`}
                         aria-label="submit-review"
-                        // disabled={!review.trim()}
                         type="submit"
                     >
                             Leave a review

@@ -70,12 +70,14 @@ function ReviewCommentsPage(props) {
                                                         <span className={styles.Date}>{review.review}</span>
                                                     </Col>
                                                     <Col m={6}>
-                                                        <span>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
+                                                        <span className={styles.Date}>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
                                                     </Col>
                                                     <Col m={6}>
                                                         <span className={styles.Date}>{review.created_at}</span>
                                                     </Col>
+                                                    <hr />
                                                 </p>
+                                                
 
                                             ))}
                                             dataLength={reviews.results.length}
