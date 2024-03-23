@@ -73,7 +73,7 @@ function App() {
             path="/reviews"
             render={() => (
               <ReviewsPage
-                message="Try adjusting the search keyword or add a review." 
+                message="Try adjusting the search keyword or attend a past event to add or read a review." 
                 filter={`attending__owner__profile=${profile_id}&ordering=-attending__created_at&`}
               />
             )}

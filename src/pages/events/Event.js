@@ -106,7 +106,9 @@ const Event = (props) => {
                 {description && <Card.Text>{description}</Card.Text>}
                 <div className={styles.EventBar}>
                     {is_owner ? (
-                        <OverlayTrigger placement="top" overlay={<Tooltip>You can't attend an event you created!</Tooltip>}>
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={<Tooltip>You can't attend an event you created!</Tooltip>}>
                             <i className="fa-regular fa-circle-check" />
                         </OverlayTrigger>
                     ) : attend_id ? (
@@ -118,7 +120,9 @@ const Event = (props) => {
                             <i className={`fa-regular fa-circle-check ${styles.GoingOutline}`} />
                         </span>
                     ) : (
-                        <OverlayTrigger placement='top' overlay={<Tooltip>Log in to confirm attendance!</Tooltip>}>
+                        <OverlayTrigger
+                            placement='top'
+                            overlay={<Tooltip>Log in to confirm attendance!</Tooltip>}>
                             <i className="fa-regular fa-circle-check" />
                         </OverlayTrigger>
                     )}

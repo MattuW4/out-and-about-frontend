@@ -11,7 +11,6 @@ import { Alert, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import btnStyles from "../../styles/Button.module.css";
 
 function ReviewCreateForm(props) {
-    useRedirect("loggedOut");
     const {
         event,
         setEvent,
@@ -79,7 +78,7 @@ function ReviewCreateForm(props) {
     return (
         <Form className="mt-2" onSubmit={handleSubmit}>
 
-            
+
 
             <Form.Group>
                 <Rating onClick={handleRating} />
@@ -106,23 +105,7 @@ function ReviewCreateForm(props) {
                 </Alert>
             ))}
 
-            {!is_owner ? (
-                <OverlayTrigger
-                    placement="top"
-                    overlay={
-                        <Tooltip>Sorry, you can't review your own event!</Tooltip>
-                    }
-                >
-                    <Button
-                        className={`${btnStyles.Button} ${btnStyles.Form}`}
-                        aria-label="submit-review"
-                        disabled={!review.trim()}
-                        type="submit"
-                    >
-                        Submit review
-                    </Button>
-                </OverlayTrigger>
-            ) : review_id ? (
+            {review_id ? (
                 <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>You've already reviewed this event</Tooltip>}

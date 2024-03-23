@@ -34,7 +34,7 @@ function ReviewCommentsPage(props) {
                 setReviews(reviews);
                 console.log(event);
             } catch (err) {
-                
+
                 console.log(err);
             }
         };
@@ -43,54 +43,62 @@ function ReviewCommentsPage(props) {
     }, [currentUser, id]);
 
     return (
-        
+
         <>
-        <Card className={styles.Event}>
-            <Card.Body>
-                <Media>
+            <Card className={styles.Event}>
+                <Card.Body>
+                    <Media>
 
-                    <Media.Body className="align-self-center ml-2">
-
-
-                        <Row className="h-100">
-                            <Col className="py-2 p-0 p-lg-2" >
+                        <Media.Body className="align-self-center ml-2">
 
 
-
-                                {reviews.results.length ? (
-                                    <InfiniteScroll
-                                        children={reviews.results.map((review) => (
+                            <Row className="h-100">
+                                <Col className="py-2 p-0 p-lg-2" >
 
 
-                                            <p key={review.id}>
-                                                <span className={styles.Owner}>{review.owner}'s review:</span>
-                                                <span className={styles.Date}>{review.review}</span>
-                                                <span>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
-                                                <span className={styles.Date}>{review.created_at}</span>
-                                            </p>
 
-                                        ))}
-                                        dataLength={reviews.results.length}
-                                        loader={<Asset spinner />}
-                                        hasMore={!!reviews.next}
-                                        next={() => fetchMoreData(reviews, setReviews)}
-                                    />
-                                ) : currentUser ? (
-                                            
-                                            <span>No reviews yet, be the first to review!</span>
-                                ) : (
-                                    
-                                    <span>No reviews...yet!</span>
-                                )}
+                                    {reviews.results.length ? (
+                                        <InfiniteScroll
+                                            children={reviews.results.map((review) => (
 
 
-                            </Col>
+                                                <p key={review.id} className="text-center">
+                                                    <Col m={6}>
+                                                        <span className={styles.Owner}>{review.owner}'s review:</span>
+                                                    </Col>
+                                                    <Col m={6}>
+                                                        <span className={styles.Date}>{review.review}</span>
+                                                    </Col>
+                                                    <Col m={6}>
+                                                        <span>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
+                                                    </Col>
+                                                    <Col m={6}>
+                                                        <span className={styles.Date}>{review.created_at}</span>
+                                                    </Col>
+                                                </p>
 
-                        </Row>
-                    </Media.Body>
-                </Media>
-            </Card.Body>
-        </Card>
+                                            ))}
+                                            dataLength={reviews.results.length}
+                                            loader={<Asset spinner />}
+                                            hasMore={!!reviews.next}
+                                            next={() => fetchMoreData(reviews, setReviews)}
+                                        />
+                                    ) : currentUser ? (
+
+                                        <span>No reviews yet, be the first to review!</span>
+                                    ) : (
+
+                                        <span>No reviews...yet!</span>
+                                    )}
+
+
+                                </Col>
+
+                            </Row>
+                        </Media.Body>
+                    </Media>
+                </Card.Body>
+            </Card>
         </>
     );
 };
