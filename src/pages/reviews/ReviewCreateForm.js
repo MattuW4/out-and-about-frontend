@@ -81,6 +81,7 @@ function ReviewCreateForm(props) {
 
 
             <Form.Group>
+            <Form.Label>Use the stars to rate your experience:</Form.Label>
                 <Rating onClick={handleRating} />
             </Form.Group>
             {errors?.rating?.map((message, idx) => (
@@ -89,7 +90,7 @@ function ReviewCreateForm(props) {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Review</Form.Label>
+                <Form.Label>Write your review below:</Form.Label>
                 <Form.Control
                     className={styles.Form}
                     placeholder="my review..."
@@ -105,20 +106,7 @@ function ReviewCreateForm(props) {
                 </Alert>
             ))}
 
-            {review_id ? (
-                <OverlayTrigger
-                    placement="top"
-                    overlay={<Tooltip>You've already reviewed this event</Tooltip>}
-                ><Button
-                    className={`${btnStyles.Button} ${btnStyles.Form}`}
-                    aria-label="submit-review"
-                    disabled={!review.trim()}
-                    type="submit"
-                >
-                        Submit review
-                    </Button>
-                </OverlayTrigger>
-            ) : (
+            
 
                 <Button
                     className={`${btnStyles.Button} $${btnStyles.Form}`}
@@ -126,9 +114,8 @@ function ReviewCreateForm(props) {
                     disabled={!review.trim()}
                     type="submit"
                 >
-                    Submit review
+                    Leave a review
                 </Button>
-            )}
         </Form>
     );
 };
