@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 
-import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -43,25 +41,16 @@ function ReviewCommentsPage(props) {
     }, [currentUser, id]);
 
     return (
-
         <>
             <Card className={styles.Event}>
                 <Card.Body>
                     <Media>
-
                         <Media.Body className="align-self-center ml-2">
-
-
                             <Row className="h-100">
                                 <Col className="py-2 p-0 p-lg-2" >
-
-
-
                                     {reviews.results.length ? (
                                         <InfiniteScroll
                                             children={reviews.results.map((review) => (
-
-
                                                 <p key={review.id} className="text-center">
                                                     <Col m={6}>
                                                         <span className={styles.Owner}>{review.owner}'s review:</span>
@@ -77,8 +66,6 @@ function ReviewCommentsPage(props) {
                                                     </Col>
                                                     <hr />
                                                 </p>
-                                                
-
                                             ))}
                                             dataLength={reviews.results.length}
                                             loader={<Asset spinner />}
@@ -86,16 +73,11 @@ function ReviewCommentsPage(props) {
                                             next={() => fetchMoreData(reviews, setReviews)}
                                         />
                                     ) : currentUser ? (
-
                                         <span>No reviews yet, be the first to review!</span>
                                     ) : (
-
                                         <span>No reviews...yet!</span>
                                     )}
-
-
                                 </Col>
-
                             </Row>
                         </Media.Body>
                     </Media>

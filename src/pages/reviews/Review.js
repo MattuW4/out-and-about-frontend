@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Event.module.css";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Card, Col, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
@@ -27,26 +27,49 @@ const Event = (props) => {
     return (
         <Card className={styles.Event}>
             <Card.Body>
-                <Media className="align-items-center justify-content-between">
-                    <Link to={`/profiles/${profile_id}`}>
-                        <Avatar src={profile_image} height={55} />
-                        {owner}
-                    </Link>
-                    <Link to={`/events/${id}`}>
-                        {title && <Card.Title className="text-center">{title}</Card.Title>}
-                        {event_date && <Card.Text> Date: {event_date}</Card.Text>}
-                    </Link>
-                    <span className={`${styles.Title}`}>
-                        Reviews: {reviews_count}
-                        Rating:
-                        <Rating readonly initialValue={average_rating} size={25} />
-                    </span>
-                </Media>
+                <Row className="h-100">
+                    <Col className="py-2 p-0 p-lg-2" >
+                        <Media className="align-items-center space-between">
+                            <Col m={2}>
+                                <Link to={`/profiles/${profile_id}`}>
+                                    <Avatar src={profile_image} height={55} />
+                                    {owner}
+                                </Link>
+                            </Col>
+                            <Col m={4}>
+                                <Link to={`/events/${id}`}>
+                                    {title && <Card.Title className="text-center">{title}</Card.Title>}
+                                </Link>
 
+                            </Col>
+                            <div>
+
+
+
+                                <Col m={4}>
+                                    <span>
+                                        {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                                    </span>
+                                </Col>
+
+                                <Col m={4}>
+                                    <span className={`${styles.Title}`}>
+                                        Reviews: {reviews_count}
+                                    </span>
+                                </Col>
+                                <Col m={4}>
+                                    <span>
+                                        Rating:
+                                        <Rating readonly initialValue={average_rating} size={25} />
+                                    </span>
+                                </Col>
+                            </div>
+                        </Media>
+                    </Col>
+                </Row>
             </Card.Body>
 
             <Card.Body>
-
                 {review_id ? (
                     <OverlayTrigger
                         placement="top"
@@ -68,10 +91,6 @@ const Event = (props) => {
                         Leave a review
                     </Button>
                 )}
-
-
-
-
                 <Button
                     className={btnStyles.Button}
                     onClick={() => history.push(`/reviews/${id}`)}
@@ -80,14 +99,9 @@ const Event = (props) => {
                     Read the reviews
                 </Button>
 
-
-            </Card.Body>
-            <Card.Body>
-
             </Card.Body>
 
-
-        </Card>
+        </Card >
     );
 };
 
