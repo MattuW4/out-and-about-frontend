@@ -4,9 +4,17 @@
 }
 
 .NavLink {
-    padding: 5px;
+  padding: 5px;
 }
 
 .Active i {
   color: #8c52ff;
+}
+
+#dropdownMenu {
+  color: #2f4858;
+  transition: color ease-in-out 0.3s;
+  padding: 5px;
+  text-align: right;
+  margin-left: 20px;
 }

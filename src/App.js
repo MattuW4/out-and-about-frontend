@@ -94,8 +94,7 @@ function App() {
             path="/contact/create/"
             render={() => <ContactCreateForm />}
           />
-          
-          {/* <Route render={() => <p>Whoops! Page not found...</p>} /> */}
+          <Route path="/notfound" render={() => <NotFound />} />
           <Route path="*" render={() => <NotFound />} />
         </Switch>
       </Container>

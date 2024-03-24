@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logofav from "../assets/logofav.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -10,6 +10,7 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import { useClickOutsideToggle } from "../hooks/useClickOutsideToggle";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
@@ -36,50 +37,92 @@ const NavBar = () => {
         </NavLink>
     )
 
-    const loggedInIcons = <>
-        <NavLink
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to="/whatson"
-        >
-            <i className="fa-solid fa-magnifying-glass"></i>What's on?
-        </NavLink>
-        <NavLink
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to="/attending"
-        >
-            <i className="fa-solid fa-heart-circle-check"></i>Attending
-        </NavLink>
-        <NavLink
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to="/reviews"
-        >
-            <i className="fa-solid fa-star"></i>Reviews 
-        </NavLink>
-        <NavLink
+    const loggedInIcons = (
+        <>
+            <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/whatson"
+            >
+                <i className="fa-solid fa-magnifying-glass"></i>What's on?
+            </NavLink>
+            <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/attending"
+            >
+                <i className="fa-solid fa-heart-circle-check"></i>Attending
+            </NavLink>
+            <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/reviews"
+            >
+                <i className="fa-solid fa-star"></i>Reviews
+            </NavLink>
+
+            <NavDropdown
+                id={styles.dropDownMenu}
+                onClick={() => setExpanded(!expanded)}
+                title={
+                    <span>
+                        <i className="fa-solid fa-bars"></i>
+                    </span>
+                }
+            >
+
+                <NavDropdown.Item
+                    id={styles.dropdownItem}
+                    as={Link}
+                    className={styles.NavLink}
+                    to={`/profiles/${currentUser?.profile_id}`}
+                    onClick={() => setExpanded(!expanded)}
+                >
+                    <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                    id={styles.dropdownItem}
+                    as={Link}
+                    className={styles.NavLink}
+                    to="/contact/create/"
+                    onClick={() => setExpanded(!expanded)}
+                >
+                    <i className="fa-solid fa-phone-volume"></i>Contact
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                    id={styles.dropdownItem}
+                    as={Link}
+                    className={styles.NavLink}
+                    to="/"
+                    onClick={handleSignOut}
+                >
+                    <i className="fa-solid fa-person-through-window"></i>Sign out
+                </NavDropdown.Item>
+            </NavDropdown>
+
+            {/* <NavLink
             className={styles.NavLink}
             to="/"
             onClick={handleSignOut}
         >
             <i className="fa-solid fa-person-through-window"></i>Sign out
-        </NavLink>
-        <NavLink
+        </NavLink> */}
+            {/* <NavLink
             className={styles.NavLink}
             activeClassName={styles.Active}
             to="/contact/create/"
         >
-            <i className="fa-solid fa-phone-volume"></i>Contact 
-        </NavLink>
-        <NavLink
+            <i className="fa-solid fa-phone-volume"></i>Contact
+        </NavLink> */}
+            {/* <NavLink
             className={styles.NavLink}
             to={`/profiles/${currentUser?.profile_id}`}
         >
             <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-        </NavLink>
+        </NavLink> */}
 
-    </>
+        </>
+    );
     const loggedOutIcons = (<>
         <NavLink
             className={styles.NavLink}
@@ -119,6 +162,7 @@ const NavBar = () => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             to="/"
+                            onClick={() => setExpanded(!expanded)}
                         >
                             <i className="fa-brands fa-space-awesome"></i>Home
                         </NavLink>

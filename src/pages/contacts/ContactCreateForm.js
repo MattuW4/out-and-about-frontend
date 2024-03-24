@@ -57,7 +57,7 @@ const ContactCreateForm = () => {
         <div className="text-center">
 
             <Form.Group>
-                <Form.Label>Message</Form.Label>
+                <Form.Label>Use this form to send the site admin a message if you are having any issues or want to provide feedback</Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={5}
