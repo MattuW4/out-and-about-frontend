@@ -18,7 +18,7 @@ import ReviewsPage from "./pages/reviews/ReviewsPage";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ReviewCommentsPage from "./pages/reviews/ReviewCommentsPage";
-import NotFound from "./pages/notfound/NotFound";
+import NotFound from "./components/NotFound";
 
 
 

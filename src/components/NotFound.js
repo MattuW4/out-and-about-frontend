@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import Asset from "../../components/Asset";
-import styles from "../../styles/NoResults.module.css";
-import NoResults from "../../assets/no-results.png";
+import Asset from "./Asset";
+import styles from "../styles/NoResults.module.css";
+import NoResults from "../assets/no-results.png";
 import Button from "react-bootstrap/Button";
 
 const NotFound = () => {
