@@ -83,7 +83,7 @@ function ReviewCommentsPage(props) {
                                     ) : (
                                         <span>No reviews...yet!</span>
                                     )}
-                                    <Button className={btnStyles.Button} onClick={() => history.goBack()}>
+                                    <Button className={`${btnStyles.Button} ${btnStyles.Wide}`} onClick={() => history.goBack()}>
                                         Back to the review page
                                     </Button>
                                 </Col>
