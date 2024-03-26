@@ -6,6 +6,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import DateFormatUtil from "../../utils/DateFormatUtil";
 
 
 const Event = (props) => {
@@ -102,7 +103,7 @@ const Event = (props) => {
             </Link>
             <Card.Body>
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                {event_date && <Card.Text> Date: <DateFormatUtil event_date={event_date} /></Card.Text>}
                 {category && <Card.Text>Category: {category}</Card.Text>}
                 {description && <Card.Text>{description}</Card.Text>}
                 <div className={styles.EventBar}>

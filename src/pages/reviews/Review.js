@@ -5,6 +5,7 @@ import { Button, Card, Col, Media, OverlayTrigger, Row, Tooltip } from "react-bo
 import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
+import DateFormatUtil from "../../utils/DateFormatUtil";
 
 const Event = (props) => {
     const {
@@ -48,7 +49,7 @@ const Event = (props) => {
 
                                 <Col m={4}>
                                     <span>
-                                        {event_date && <Card.Text> Date: {event_date}</Card.Text>}
+                                        {event_date && <Card.Text> Date: <DateFormatUtil event_date={event_date}/></Card.Text>}
                                     </span>
                                 </Col>
 
