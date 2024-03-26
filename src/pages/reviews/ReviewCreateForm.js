@@ -5,9 +5,8 @@ import Form from "react-bootstrap/Form";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Rating } from "react-simple-star-rating";
-import { useRedirect } from "../../hooks/useRedirect";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { Alert, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Alert, Button } from "react-bootstrap";
 import btnStyles from "../../styles/Button.module.css";
 
 function ReviewCreateForm(props) {
@@ -15,8 +14,6 @@ function ReviewCreateForm(props) {
         event,
         setEvent,
         setReviews,
-        is_owner,
-        review_id,
     } = props;
 
     const { id } = useParams();
@@ -81,7 +78,7 @@ function ReviewCreateForm(props) {
 
 
             <Form.Group>
-            <Form.Label>Use the stars to rate your experience:</Form.Label>
+                <Form.Label>Use the stars to rate your experience:</Form.Label>
                 <Rating onClick={handleRating} />
             </Form.Group>
             {errors?.rating?.map((message, idx) => (
@@ -106,16 +103,16 @@ function ReviewCreateForm(props) {
                 </Alert>
             ))}
 
-            
 
-                <Button
-                    className={`${btnStyles.Button} $${btnStyles.Form}`}
-                    aria-label="submit-review"
-                    disabled={!review.trim()}
-                    type="submit"
-                >
-                    Leave a review
-                </Button>
+
+            <Button
+                className={`${btnStyles.Button} $${btnStyles.Form}`}
+                aria-label="submit-review"
+                disabled={!review.trim()}
+                type="submit"
+            >
+                Leave a review
+            </Button>
         </Form>
     );
 };
