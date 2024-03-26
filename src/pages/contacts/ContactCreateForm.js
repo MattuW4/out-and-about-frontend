@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import Modal from "react-bootstrap/Modal";
 import { useHistory } from "react-router-dom";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -22,11 +21,6 @@ const ContactCreateForm = () => {
 
     const history = useHistory();
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     const handleChange = (event) => {
         setContactData({
             ...contactData,
@@ -43,7 +37,6 @@ const ContactCreateForm = () => {
         try {
             await axiosReq.post("/contacts/", formData);
             history.goBack();
-            handleShow();
             console.log(event)
         } catch (err) {
             if (err.response?.status !== 401) {
@@ -62,6 +55,7 @@ const ContactCreateForm = () => {
                     as="textarea"
                     rows={5}
                     name="message"
+                    placeholder="Type your message here"
                     value={message}
                     onChange={handleChange}
                 />
@@ -75,9 +69,10 @@ const ContactCreateForm = () => {
             <Button className={btnStyles.Button} onClick={() => history.goBack()}>
                 Cancel
             </Button>
-            <Button className={btnStyles.Button} type="submit" onClick={() => history.goBack()}>
+            <Button className={btnStyles.Button} type="submit">
                 Send message
             </Button>
+            
         </div>
     );
 
@@ -86,22 +81,6 @@ const ContactCreateForm = () => {
             <Form onSubmit={handleSubmit}>
                 <Container className={appStyles.Content}>{textFields}</Container>
             </Form>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Confirmed</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Thanks for your feedback.
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button className={btnStyles.Button} onClick={handleClose}>
-                        Confirm
-                    </Button>
-                </Modal.Footer>
-            </Modal>
         </Container>
     );
 };
