@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Media from "react-bootstrap/Media";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -15,10 +16,15 @@ import { Rating } from "react-simple-star-rating";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import { useHistory } from "react-router-dom";
+
+import btnStyles from "../../styles/Button.module.css";
 
 function ReviewCommentsPage(props) {
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
+
+    const history = useHistory();
 
     const currentUser = useCurrentUser();
     const [reviews, setReviews] = useState({ results: [] });
@@ -50,7 +56,7 @@ function ReviewCommentsPage(props) {
                                     {reviews.results.length ? (
                                         <InfiniteScroll
                                             children={reviews.results.map((review) => (
-                                                <p key={review.id} className="text-center">
+                                                <span key={review.id} className="text-center">
                                                     <Col m={6}>
                                                         <span className={styles.Owner}>{review.owner}'s review:</span>
                                                     </Col>
@@ -64,7 +70,8 @@ function ReviewCommentsPage(props) {
                                                         <span className={styles.Date}>{review.created_at}</span>
                                                     </Col>
                                                     <hr />
-                                                </p>
+                                                </span>
+
                                             ))}
                                             dataLength={reviews.results.length}
                                             loader={<Asset spinner />}
@@ -76,6 +83,9 @@ function ReviewCommentsPage(props) {
                                     ) : (
                                         <span>No reviews...yet!</span>
                                     )}
+                                    <Button className={btnStyles.Button} onClick={() => history.goBack()}>
+                                        Back to the review page
+                                    </Button>
                                 </Col>
                             </Row>
                         </Media.Body>
