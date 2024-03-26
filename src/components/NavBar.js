@@ -45,6 +45,7 @@ const NavBar = (props) => {
             <NavLink
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="Whats on"
                 to="/whatson"
             >
                 <i className="fa-solid fa-magnifying-glass"></i>What's on?
@@ -52,6 +53,7 @@ const NavBar = (props) => {
             <NavLink
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="Attending"
                 to="/attending"
             >
                 <i className="fa-solid fa-heart-circle-check"></i>Attending
@@ -59,6 +61,7 @@ const NavBar = (props) => {
             <NavLink
                 className={styles.NavLink}
                 activeClassName={styles.Active}
+                aria-label="Reviews"
                 to="/reviews"
             >
                 <i className="fa-solid fa-star"></i>Reviews
@@ -81,7 +84,7 @@ const NavBar = (props) => {
                     to={`/profiles/${currentUser?.profile_id}`}
                     onClick={() => setExpanded(!expanded)}
                 >
-                    <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+                    <Avatar src={currentUser?.profile_image} text="Profile"  height={40} />
                 </NavDropdown.Item>
                 <NavDropdown.Item
                     id={styles.dropdownItem}
@@ -130,6 +133,7 @@ const NavBar = (props) => {
         <NavLink
             className={styles.NavLink}
             activeClassName={styles.Active}
+            aria-label="Sign in"
             to="/signin"
         >
             <i className="fa-solid fa-arrow-right-to-bracket"></i>Sign in
@@ -137,6 +141,7 @@ const NavBar = (props) => {
         <NavLink
             className={styles.NavLink}
             activeClassName={styles.Active}
+            aria-label="Sign up"
             to="/signup"
         >
             <i className="fa-solid fa-user-pen"></i>Sign up
@@ -174,6 +179,7 @@ const NavBar = (props) => {
                 <Link
                     className={styles.NavLink}
                     activeClassName={styles.Active}
+                    aria-label="Sign in"
                     to="/signin"
                 >
                     <i className="fa-solid fa-arrow-right-to-bracket"></i>
