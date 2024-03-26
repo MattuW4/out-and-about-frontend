@@ -46,7 +46,6 @@ const Event = (props) => {
             history.goBack();
 
         } catch (err) {
-            console.log(err)
         }
     };
 
@@ -62,7 +61,6 @@ const Event = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err);
         }
     };
 
@@ -78,7 +76,6 @@ const Event = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err);
         }
     };
 

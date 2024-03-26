@@ -32,10 +32,7 @@ function ReviewCommentsPage(props) {
                 ]);
                 setEvent({ results: [event] });
                 setReviews(reviews);
-                console.log(event);
             } catch (err) {
-
-                console.log(err);
             }
         };
 

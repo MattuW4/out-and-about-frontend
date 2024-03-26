@@ -37,12 +37,10 @@ const ContactCreateForm = () => {
         try {
             await axiosReq.post("/contacts/", formData);
             history.goBack();
-            console.log(event)
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
-            console.log(err);
         }
     };
 

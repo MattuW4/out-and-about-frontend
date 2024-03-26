@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+
 function CommentCreateForm(props) {
     const { event, setEvent, setComments, profileImage, profile_id } = props;
     const [content, setContent] = useState("");
+    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         setContent(e.target.value);
@@ -37,7 +40,9 @@ function CommentCreateForm(props) {
             }));
             setContent("");
         } catch (err) {
-            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data)
+            }
         }
     };
 
@@ -50,7 +55,7 @@ function CommentCreateForm(props) {
                     </Link>
                     <Form.Control
                         className={styles.Form}
-                        placeholder="my comment..."
+                        placeholder="Write a comment..."
                         as="textarea"
                         value={content}
                         onChange={handleChange}
@@ -58,6 +63,11 @@ function CommentCreateForm(props) {
                     />
                 </InputGroup>
             </Form.Group>
+            {errors?.content?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <button
                 className={`${styles.Button} btn d-block ml-auto`}
                 disabled={!content.trim()}

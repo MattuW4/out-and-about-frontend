@@ -33,7 +33,6 @@ const NavBar = (props) => {
             setCurrentUser(null);
             removeTokenTimestamp();
         } catch (err) {
-            console.log(err);
         }
     };
 
