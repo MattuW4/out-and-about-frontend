@@ -17,6 +17,7 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function EventsPage({ message, filter = "" }) {
@@ -27,6 +28,8 @@ function EventsPage({ message, filter = "" }) {
 
     const [query, setQuery] = useState("");
     const [category, setCategory] = useState("");
+
+    const currentUser = useCurrentUser();
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -47,7 +50,7 @@ function EventsPage({ message, filter = "" }) {
             clearTimeout(timer);
         };
 
-    }, [filter, pathname, category, query]);
+    }, [filter, pathname, category, query, currentUser]);
 
     return (
         <Row className="h-100">
