@@ -11,6 +11,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import { useClickOutsideToggle } from "../hooks/useClickOutsideToggle";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = (props) => {
     const currentUser = useCurrentUser();
@@ -25,6 +26,7 @@ const NavBar = (props) => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
+            removeTokenTimestamp();
         } catch (err) {
             console.log(err);
         }
@@ -39,7 +41,6 @@ const NavBar = (props) => {
             <i className="fa-regular fa-calendar-plus"></i>Add event
         </NavLink>
     )
-
     const loggedInIcons = (
         <>
             <NavLink
@@ -76,7 +77,6 @@ const NavBar = (props) => {
                     </span>
                 }
             >
-
                 <NavDropdown.Item
                     id={styles.dropdownItem}
                     as={Link}
@@ -105,28 +105,6 @@ const NavBar = (props) => {
                     <i className="fa-solid fa-person-through-window"></i>Sign out
                 </NavDropdown.Item>
             </NavDropdown>
-
-            {/* <NavLink
-            className={styles.NavLink}
-            to="/"
-            onClick={handleSignOut}
-        >
-            <i className="fa-solid fa-person-through-window"></i>Sign out
-        </NavLink> */}
-            {/* <NavLink
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to="/contact/create/"
-        >
-            <i className="fa-solid fa-phone-volume"></i>Contact
-        </NavLink> */}
-            {/* <NavLink
-            className={styles.NavLink}
-            to={`/profiles/${currentUser?.profile_id}`}
-        >
-            <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-        </NavLink> */}
-
         </>
     );
     const loggedOutIcons = (<>
@@ -167,23 +145,23 @@ const NavBar = (props) => {
                 You can see an overview of whats on without being a member but to be able to 
                 create events, subscribe to other users, leave comments, review past events 
                 and much more you need to sign up
-                <Link
+                <NavLink
                     className={styles.NavLink}
                     activeClassName={styles.Active}
                     to="/signup"
                 >
                     <i className="fa-solid fa-user-pen"></i>
-                </Link>
+                </NavLink>
                 <br />
                 If you are already part of the community, sign in
-                <Link
+                <NavLink
                     className={styles.NavLink}
                     activeClassName={styles.Active}
                     aria-label="Sign in"
                     to="/signin"
                 >
                     <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                </Link>
+                </NavLink>
                 <br />
                 This information only appears on the homepage when you first visit us so if you
                 want to see it again just refresh the page!
