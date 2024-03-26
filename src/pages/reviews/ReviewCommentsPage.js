@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Media from "react-bootstrap/Media";
+import Card from "react-bootstrap/Card";
 
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+
 import styles from "../../styles/Comment.module.css";
 import { Rating } from "react-simple-star-rating";
 import InfiniteScroll from "react-infinite-scroll-component";

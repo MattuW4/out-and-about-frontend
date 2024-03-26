@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 
 import Asset from "../../components/Asset";
 
@@ -15,7 +17,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Button, Image } from "react-bootstrap";
+
 import { fetchMoreData } from "../../utils/utils";
 import Event from "../events/Event";
 import InfiniteScroll from "react-infinite-scroll-component";

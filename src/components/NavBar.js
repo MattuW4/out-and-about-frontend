@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav, NavDropdown, Modal, Button } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import logofav from "../assets/logofav.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -84,7 +89,7 @@ const NavBar = (props) => {
                     to={`/profiles/${currentUser?.profile_id}`}
                     onClick={() => setExpanded(!expanded)}
                 >
-                    <Avatar src={currentUser?.profile_image} text="Profile"  height={40} />
+                    <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
                 </NavDropdown.Item>
                 <NavDropdown.Item
                     id={styles.dropdownItem}
@@ -142,8 +147,8 @@ const NavBar = (props) => {
             </Modal.Header>
             <Modal.Body>
                 We are a social platform for music and cultural events in your area and beyond.
-                You can see an overview of whats on without being a member but to be able to 
-                create events, subscribe to other users, leave comments, review past events 
+                You can see an overview of whats on without being a member but to be able to
+                create events, subscribe to other users, leave comments, review past events
                 and much more you need to sign up
                 <NavLink
                     className={styles.NavLink}

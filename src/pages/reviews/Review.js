@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "../../styles/Event.module.css";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Card, Col, Media, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Row from "react-bootstrap/Row";
+import Tooltip from "react-bootstrap/Tooltip";
 import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
@@ -49,7 +55,7 @@ const Event = (props) => {
 
                                 <Col m={4}>
                                     <span>
-                                        {event_date && <Card.Text> Date: <DateFormatUtil event_date={event_date}/></Card.Text>}
+                                        {event_date && <Card.Text> Date: <DateFormatUtil event_date={event_date} /></Card.Text>}
                                     </span>
                                 </Col>
 
