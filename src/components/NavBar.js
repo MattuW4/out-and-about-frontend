@@ -17,6 +17,7 @@ import axios from "axios";
 import { useClickOutsideToggle } from "../hooks/useClickOutsideToggle";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { removeTokenTimestamp } from "../utils/utils";
+import btnStyles from "../styles/Button.module.css";
 
 const NavBar = (props) => {
     const currentUser = useCurrentUser();
@@ -171,10 +172,13 @@ const NavBar = (props) => {
                 want to see it again just refresh the page!
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button 
+                variant="secondary" 
+                onClick={handleClose}
+                className={`${btnStyles.Button} ${btnStyles.Purple}`}
+                >
                     Close
                 </Button>
-
             </Modal.Footer>
         </Modal>
     </>
