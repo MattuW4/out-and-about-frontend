@@ -4,6 +4,7 @@ import Asset from "./Asset";
 import styles from "../styles/NoResults.module.css";
 import NoResults from "../assets/no-results.png";
 import Button from "react-bootstrap/Button";
+import btnStyles from "../styles/Button.module.css";
 
 const NotFound = () => {
   return (
@@ -17,7 +18,7 @@ const NotFound = () => {
           <Asset alt="page not found" src={NoResults} />
         </div>
         <div className={`text-center`}>
-          <Button className={styles.Button}>
+          <Button className={`${btnStyles.Button} ${btnStyles.Purple}`}>
             <Link className={styles.Link} to={"/"}>
               Click here to return to the Homepage
             </Link>
