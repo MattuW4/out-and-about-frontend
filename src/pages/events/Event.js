@@ -46,6 +46,7 @@ const Event = (props) => {
             history.goBack();
 
         } catch (err) {
+            // continue regardless of error
         }
     };
 
@@ -61,6 +62,7 @@ const Event = (props) => {
                 }),
             }));
         } catch (err) {
+            // continue regardless of error
         }
     };
 
@@ -76,6 +78,7 @@ const Event = (props) => {
                 }),
             }));
         } catch (err) {
+            // continue regardless of error
         }
     };
 
@@ -110,7 +113,7 @@ const Event = (props) => {
                     {is_owner ? (
                         <OverlayTrigger
                             placement="top"
-                            overlay={<Tooltip>You can't attend an event you created!</Tooltip>}>
+                            overlay={<Tooltip>You can&apos;t attend an event you created!</Tooltip>}>
                             <i className="fa-regular fa-circle-check" />
                         </OverlayTrigger>
                     ) : attend_id ? (

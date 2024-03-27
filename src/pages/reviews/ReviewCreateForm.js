@@ -116,6 +116,6 @@ function ReviewCreateForm(props) {
             </Button>
         </Form>
     );
-};
+}
 
 export default ReviewCreateForm;

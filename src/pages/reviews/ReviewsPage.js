@@ -20,12 +20,13 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function ReviewsPage({ message, filter = "" }) {
+function ReviewsPage({ message = "", filter = "" }) {
 
     // const [reviews, setReviews] = useState({ results: [] });
     const [events, setEvents] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+
 
     const [query, setQuery] = useState("");
     const [category, setCategory] = useState("");
@@ -43,6 +44,7 @@ function ReviewsPage({ message, filter = "" }) {
                 setEvents(data);
                 setHasLoaded(true);
             } catch (err) {
+                // continue regardless of error
             }
         };
 
@@ -128,6 +130,6 @@ function ReviewsPage({ message, filter = "" }) {
             </Col>
         </Row>
     );
-};
+}
 
 export default ReviewsPage;

@@ -34,6 +34,7 @@ const NavBar = (props) => {
             setCurrentUser(null);
             removeTokenTimestamp();
         } catch (err) {
+            // continue regardless of error
         }
     };
 
@@ -54,7 +55,7 @@ const NavBar = (props) => {
                 aria-label="Whats on"
                 to="/whatson"
             >
-                <i className="fa-solid fa-magnifying-glass"></i>What's on?
+                <i className="fa-solid fa-magnifying-glass"></i>What&apos;s on?
             </NavLink>
             <NavLink
                 className={styles.NavLink}

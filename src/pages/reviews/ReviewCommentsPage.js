@@ -20,7 +20,7 @@ import { useHistory } from "react-router-dom";
 
 import btnStyles from "../../styles/Button.module.css";
 
-function ReviewCommentsPage(props) {
+function ReviewCommentsPage() {
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
 
@@ -39,6 +39,7 @@ function ReviewCommentsPage(props) {
                 setEvent({ results: [event] });
                 setReviews(reviews);
             } catch (err) {
+                // continue regardless of error
             }
         };
 
@@ -58,7 +59,7 @@ function ReviewCommentsPage(props) {
                                             children={reviews.results.map((review) => (
                                                 <span key={review.id} className="text-center">
                                                     <Col m={6}>
-                                                        <span className={styles.Owner}>{review.owner}'s review:</span>
+                                                        <span className={styles.Owner}>{review.owner}&apos;s review:</span>
                                                     </Col>
                                                     <Col m={6}>
                                                         <span className={styles.Date}>{review.review}</span>
@@ -93,7 +94,7 @@ function ReviewCommentsPage(props) {
                 </Card.Body>
             </Card>
         </>
-    );
-};
+    )
+}
 
 export default ReviewCommentsPage;

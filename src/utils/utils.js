@@ -13,7 +13,9 @@ export const fetchMoreData = async (resource, setResource) => {
                     : [...acc, cur];
             }, prevResource.results),
         }));
-    } catch (err) { }
+    } catch (err) {
+        // continue regardless of error
+    }
 };
 
 export const subscribeHelper = (profile, clickedProfile, subscribing_id) => {
@@ -49,12 +51,12 @@ export const unsubscribeHelper = (profile, clickedProfile) => {
 export const setTokenTimestamp = (data) => {
     const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
     localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
-  };
-  
-  export const shouldRefreshToken = () => {
+};
+
+export const shouldRefreshToken = () => {
     return !!localStorage.getItem("refreshTokenTimestamp");
-  };
-  
-  export const removeTokenTimestamp = () => {
+};
+
+export const removeTokenTimestamp = () => {
     localStorage.removeItem("refreshTokenTimestamp");
-  };
+};

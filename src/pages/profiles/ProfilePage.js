@@ -51,6 +51,7 @@ function ProfilePage() {
                 setProfileEvents(profileEvents);
                 setHasLoaded(true);
             } catch (err) {
+                // continue regardless of error
             }
         };
         fetchData();
@@ -111,7 +112,7 @@ function ProfilePage() {
     const mainProfileEvents = (
         <>
             <hr />
-            <p className="text-center">{profile?.owner}'s events</p>
+            <p className="text-center">{profile?.owner}&apos;s events</p>
             <hr />
             {profileEvents.results.length ? (
                 <InfiniteScroll

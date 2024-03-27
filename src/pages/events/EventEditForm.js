@@ -43,6 +43,7 @@ function EventEditForm() {
 
                 is_owner ? setEventData({ title, description, image, event_date, category, }) : history.push("/");
             } catch (err) {
+                // continue regardless of error
             }
         };
 

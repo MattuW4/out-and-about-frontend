@@ -80,7 +80,7 @@ const Event = (props) => {
                 {review_id ? (
                     <OverlayTrigger
                         placement="top"
-                        overlay={<Tooltip>You've already reviewed this event</Tooltip>}
+                        overlay={<Tooltip>You have already reviewed this event</Tooltip>}
                     ><Button
                         className={`${btnStyles.Button} ${btnStyles.BlackOutline} ${btnStyles.Form}`}
                         aria-label="submit-review"

@@ -38,6 +38,7 @@ function EventsPage({ message, filter = "" }) {
                 setEvents(data);
                 setHasLoaded(true);
             } catch (err) {
+                // continue regardless of error
             }
         };
 
@@ -68,27 +69,27 @@ function EventsPage({ message, filter = "" }) {
                         className="mr-sm-2"
                         placeholder="Search events"
                     />
-                
-                <Form.Control
-                    size="sm"
-                    as="select"
-                    placeholder="Search by category"
-                    value={category}
-                    onChange={(event) => setCategory(event.target.value)}
-                >
-                    <option key="blankChoice" hidden value>
-                        {" "}
-                        Search by category{" "}
-                    </option>
-                    <option>Music</option>
-                    <option>Electronic</option>
-                    <option>Garage</option>
-                    <option>House</option>
-                    <option>DnB</option>
-                    <option>Hip-Hop</option>
-                    <option>Live-band</option>
-                    <option>Soul/funk</option> 
-                </Form.Control>
+
+                    <Form.Control
+                        size="sm"
+                        as="select"
+                        placeholder="Search by category"
+                        value={category}
+                        onChange={(event) => setCategory(event.target.value)}
+                    >
+                        <option key="blankChoice" hidden value>
+                            {" "}
+                            Search by category{" "}
+                        </option>
+                        <option>Music</option>
+                        <option>Electronic</option>
+                        <option>Garage</option>
+                        <option>House</option>
+                        <option>DnB</option>
+                        <option>Hip-Hop</option>
+                        <option>Live-band</option>
+                        <option>Soul/funk</option>
+                    </Form.Control>
                 </Form>
 
 

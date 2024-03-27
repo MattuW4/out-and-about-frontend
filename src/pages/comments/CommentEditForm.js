@@ -5,6 +5,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
+
 function CommentEditForm(props) {
     const { id, content, setShowEditForm, setComments } = props;
 
@@ -34,6 +35,7 @@ function CommentEditForm(props) {
             }));
             setShowEditForm(false);
         } catch (err) {
+            // continue regardless of error
         }
     };
 
@@ -54,14 +56,13 @@ function CommentEditForm(props) {
                     onClick={() => setShowEditForm(false)}
                     type="button"
                 >
-                    cancel
+                    Cancel
                 </button>
                 <button
                     className={styles.Button}
-                    disabled={!content.trim()}
                     type="submit"
                 >
-                    save
+                    Cave
                 </button>
             </div>
         </Form>
