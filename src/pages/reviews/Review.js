@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import styles from "../../styles/Event.module.css";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -82,7 +82,7 @@ const Event = (props) => {
                         placement="top"
                         overlay={<Tooltip>You have already reviewed this event</Tooltip>}
                     ><Button
-                        className={`${btnStyles.Button} ${btnStyles.BlackOutline} ${btnStyles.Form}`}
+                        className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}
                         aria-label="submit-review"
                         type="submit"
                     >

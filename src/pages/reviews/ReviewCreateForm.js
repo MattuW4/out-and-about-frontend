@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button  from "react-bootstrap/Button";
@@ -107,9 +107,8 @@ function ReviewCreateForm(props) {
 
 
             <Button
-                className={`${btnStyles.Button} $${btnStyles.Form}`}
+                className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}
                 aria-label="submit-review"
-                disabled={!review.trim()}
                 type="submit"
             >
                 Leave a review
