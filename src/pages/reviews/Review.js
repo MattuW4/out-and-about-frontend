@@ -82,7 +82,7 @@ const Event = (props) => {
                         placement="top"
                         overlay={<Tooltip>You've already reviewed this event</Tooltip>}
                     ><Button
-                        className={`${btnStyles.Button} ${btnStyles.Form}`}
+                        className={`${btnStyles.Button} ${btnStyles.BlackOutline} ${btnStyles.Form}`}
                         aria-label="submit-review"
                         type="submit"
                     >
@@ -91,7 +91,7 @@ const Event = (props) => {
                     </OverlayTrigger>
                 ) : (
                     <Button
-                        className={btnStyles.Button}
+                        className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}
                         onClick={() => history.push(`/reviews/${id}/create`)}
                         aria-label="create-review"
                     >
@@ -99,7 +99,7 @@ const Event = (props) => {
                     </Button>
                 )}
                 <Button
-                    className={btnStyles.Button}
+                    className={`${btnStyles.Button} ${btnStyles.Purple}`}
                     onClick={() => history.push(`/reviews/${id}`)}
                     aria-label="view-reviews"
                 >

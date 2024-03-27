@@ -64,10 +64,10 @@ const ContactCreateForm = () => {
                 </Alert>
             ))}
 
-            <Button className={btnStyles.Button} onClick={() => history.goBack()}>
+            <Button className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}>
                 Cancel
             </Button>
-            <Button className={btnStyles.Button} type="submit">
+            <Button className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`} type="submit">
                 Send message
             </Button>
             
