@@ -10,6 +10,7 @@ import { Rating } from "react-simple-star-rating";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import btnStyles from "../../styles/Button.module.css";
+import { Card } from "react-bootstrap";
 
 function ReviewCreateForm(props) {
     const {
@@ -74,54 +75,55 @@ function ReviewCreateForm(props) {
     };
 
     return (
-        <Form className="mt-2" onSubmit={handleSubmit}>
+        <Card className={styles.Event}>
+            <Card.Body>
+                <Form className="mt-2" onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <Form.Label
+                            aria-label="Select star ratiing for event"
+                        >Use the stars to rate your experience:</Form.Label>
+                        <Rating onClick={handleRating} />
+                    </Form.Group>
+                    {errors?.rating?.map((message, idx) => (
+                        <Alert variant="warning" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+                    <Form.Group>
+                        <Form.Label>Write your review below:</Form.Label>
+                        <Form.Control
+                            className={styles.Form}
+                            placeholder="my review..."
+                            as="textarea"
+                            value={review}
+                            onChange={handleChange}
+                            rows={4}
+                            aria-label="Input for event review"
+                        />
+                    </Form.Group>
+                    {errors?.review?.map((message, idx) => (
+                        <Alert variant="warning" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
 
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}
+                        aria-label="Button to go back to review page"
+                    >
+                        Cancel making a review
+                    </Button>
 
-
-            <Form.Group>
-                <Form.Label
-                    aria-label="Select star ratiing for event"
-                >Use the stars to rate your experience:</Form.Label>
-                <Rating onClick={handleRating} />
-            </Form.Group>
-            {errors?.rating?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label>Write your review below:</Form.Label>
-                <Form.Control
-                    className={styles.Form}
-                    placeholder="my review..."
-                    as="textarea"
-                    value={review}
-                    onChange={handleChange}
-                    rows={4}
-                    aria-label="Input for event review"
-                />
-            </Form.Group>
-            {errors?.review?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}
-                aria-label="Button to go back to review page"
-            >
-                Cancel making a review 
-            </Button>
-
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}
-                aria-label="submit-review"
-                type="submit"
-            >
-                Leave a review
-            </Button>
-        </Form>
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}
+                        aria-label="submit-review"
+                        type="submit"
+                    >
+                        Leave a review
+                    </Button>
+                </Form>
+            </Card.Body>
+        </Card>
     );
 }
 
