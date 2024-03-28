@@ -21,7 +21,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
 import Event from "../events/Event";
 import InfiniteScroll from "react-infinite-scroll-component";
-import NoResults from "../../assets/no-results.png";
+import NoResults from "../../assets/no-results.webp";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 

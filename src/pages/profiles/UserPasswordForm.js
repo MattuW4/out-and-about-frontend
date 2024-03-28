@@ -88,7 +88,7 @@ const UserPasswordForm = () => {
                             </Alert>
                         ))}
                         <Button
-                            className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                            className={`${btnStyles.Button} ${btnStyles.Purple}`}
                             onClick={() => history.goBack()}
                             aria-label="Button to cancel edit of user password"
                         >
@@ -96,7 +96,7 @@ const UserPasswordForm = () => {
                         </Button>
                         <Button
                             type="submit"
-                            className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                            className={`${btnStyles.Button} ${btnStyles.Purple}`}
                             aria-label="Button to save edit of user password"
                         >
                             Save

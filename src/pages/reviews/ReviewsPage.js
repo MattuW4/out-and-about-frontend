@@ -10,7 +10,7 @@ import styles from "../../styles/EventsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
-import NoResults from "../../assets/no-results.png";
+import NoResults from "../../assets/no-results.webp";
 
 import Review from "./Review";
 import Asset from "../../components/Asset";

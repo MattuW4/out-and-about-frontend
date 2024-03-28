@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 
-import Upload from "../../assets/upload.png";
+import Upload from "../../assets/upload.webp";
 
 import styles from "../../styles/EventCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -192,7 +192,7 @@ function EventCreateForm() {
                                     </figure>
                                     <div>
                                         <Form.Label
-                                            className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                                            className={`${btnStyles.Button} ${btnStyles.Purple} btn`}
                                             htmlFor="image-upload"
                                             aria-label="Click here to change event poster"
                                         >

@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import logofav from "../assets/logofav.png";
+import logofav from "../assets/logofav.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import {

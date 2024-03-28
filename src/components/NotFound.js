@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Asset from "./Asset";
 import styles from "../styles/NoResults.module.css";
-import NoResults from "../assets/no-results.png";
+import NoResults from "../assets/no-results.webp";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../styles/Button.module.css";
 

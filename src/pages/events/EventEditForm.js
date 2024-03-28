@@ -163,14 +163,14 @@ function EventEditForm() {
             ))}
 
             <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                className={`${btnStyles.Button} ${btnStyles.Purple}`}
                 onClick={() => history.goBack()}
                 aria-label="Button to cancel editing of an event form"
             >
                 Cancel
             </Button>
             <Button 
-            className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
+            className={`${btnStyles.Button} ${btnStyles.Purple}`} type="submit"
             aria-label="Button to save the editing of an event form"
             >
                 Save
@@ -191,7 +191,7 @@ function EventEditForm() {
                             </figure>
                             <div>
                                 <Form.Label
-                                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                                    className={`${btnStyles.Button} ${btnStyles.Purple} btn`}
                                     htmlFor="image-upload"
                                 >
                                     Change the event poster
