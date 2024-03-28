@@ -41,7 +41,7 @@ const Profile = (props) => {
                     !is_owner &&
                     (subscribing_id ? (
                         <Button
-                            className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                            className={`${btnStyles.Button} ${btnStyles.Purple}`}
                             onClick={() => handleUnsubscribe(profile)}
                             aria-label="Button to unsubscribe from a user profile"
                         >
@@ -49,7 +49,7 @@ const Profile = (props) => {
                         </Button>
                     ) : (
                         <Button
-                            className={`${btnStyles.Button} ${btnStyles.Black}`}
+                            className={`${btnStyles.Button} ${btnStyles.Purple}`}
                             onClick={() => handleSubscribe(profile)}
                             aria-label="Button to subscribe to a user profile"
                         >
