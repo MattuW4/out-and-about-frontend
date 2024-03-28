@@ -62,7 +62,7 @@ function ReviewCommentsPage() {
                                                         <span className={styles.Owner}>{review.owner}&apos;s review:</span>
                                                     </Col>
                                                     <Col m={6}>
-                                                        <span className={styles.Date}>{review.review}</span>
+                                                        <span className={styles.Content}>{review.review}</span>
                                                     </Col>
                                                     <Col m={6}>
                                                         <span className={styles.Date}>Rating: <Rating readonly initialValue={review.rating} size={25} /></span>
