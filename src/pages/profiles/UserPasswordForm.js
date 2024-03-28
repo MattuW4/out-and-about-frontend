@@ -79,6 +79,7 @@ const UserPasswordForm = () => {
                                 value={new_password2}
                                 onChange={handleChange}
                                 name="new_password2"
+                                aria-label="Input to change password"
                             />
                         </Form.Group>
                         {errors?.new_password2?.map((message, idx) => (

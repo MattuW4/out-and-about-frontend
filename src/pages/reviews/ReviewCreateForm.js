@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Form from "react-bootstrap/Form";
-import Button  from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
@@ -79,7 +79,9 @@ function ReviewCreateForm(props) {
 
 
             <Form.Group>
-                <Form.Label>Use the stars to rate your experience:</Form.Label>
+                <Form.Label
+                    aria-label="Select star ratiing for event"
+                >Use the stars to rate your experience:</Form.Label>
                 <Rating onClick={handleRating} />
             </Form.Group>
             {errors?.rating?.map((message, idx) => (
@@ -96,6 +98,7 @@ function ReviewCreateForm(props) {
                     value={review}
                     onChange={handleChange}
                     rows={4}
+                    aria-label="Input for event review"
                 />
             </Form.Group>
             {errors?.review?.map((message, idx) => (
@@ -104,7 +107,12 @@ function ReviewCreateForm(props) {
                 </Alert>
             ))}
 
-
+            <Button
+                className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}
+                aria-label="Button to go back to review page"
+            >
+                Cancel making a review 
+            </Button>
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`}

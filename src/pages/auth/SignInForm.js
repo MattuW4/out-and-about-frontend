@@ -116,6 +116,7 @@ function SignInForm() {
                 className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
             >
                 <Image
+                    alt="Placeholder image"
                     className={`${appStyles.FillerImage}`}
                     src={"https://res.cloudinary.com/deoxxigyw/image/upload/v1709735486/rsmtbjwdfbtnem9sbz06.webp"}
                 />

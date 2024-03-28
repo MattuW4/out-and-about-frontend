@@ -90,6 +90,7 @@ function EventCreateForm() {
                     name="title"
                     value={title}
                     onChange={handleChange}
+                    aria-label="Input for event title"
                 />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
@@ -105,6 +106,7 @@ function EventCreateForm() {
                     name="description"
                     value={description}
                     onChange={handleChange}
+                    aria-label="Input for event description"
                 />
             </Form.Group>
             {errors?.description?.map((message, idx) => (
@@ -119,6 +121,7 @@ function EventCreateForm() {
                     name="event_date"
                     value={event_date}
                     onChange={handleChange}
+                    aria-label="Input for event date"
                 />
             </Form.Group>
             {errors?.event_date?.map((message, idx) => (
@@ -135,6 +138,7 @@ function EventCreateForm() {
                     name="category"
                     value={category}
                     onChange={handleChange}
+                    aria-label="Input for event category"
                 >
                     <option>Music</option>
                     <option>Electronic</option>
@@ -181,12 +185,16 @@ function EventCreateForm() {
                             {image ? (
                                 <>
                                     <figure>
-                                        <Image className={appStyles.Image} src={image} rounded />
+                                        <Image 
+                                        alt="Profile image"
+                                        className={appStyles.Image} 
+                                        src={image} rounded />
                                     </figure>
                                     <div>
                                         <Form.Label
                                             className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
                                             htmlFor="image-upload"
+                                            aria-label="Click here to change event poster"
                                         >
                                             Change the poster
                                         </Form.Label>

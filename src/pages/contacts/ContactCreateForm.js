@@ -56,6 +56,7 @@ const ContactCreateForm = () => {
                     placeholder="Type your message here"
                     value={message}
                     onChange={handleChange}
+                    aria-label="Input for contact form"
                 />
             </Form.Group>
             {errors?.message?.map((message, idx) => (

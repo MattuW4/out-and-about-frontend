@@ -201,6 +201,7 @@ function EventEditForm() {
                             <Form.File
                                 id="image-upload"
                                 accept="image/*"
+                                aria-label="Upload an image"
                                 onChange={handleChangeImage}
                                 ref={imageInput}
                             />

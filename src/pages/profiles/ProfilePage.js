@@ -66,6 +66,8 @@ function ProfilePage() {
                         className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
+                        aria-label="User profile image"
+                        alt="Profile image"
                     />
                 </Col>
                 <Col lg={6}>

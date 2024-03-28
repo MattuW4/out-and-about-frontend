@@ -74,12 +74,14 @@ function ReviewsPage({ message = "", filter = "" }) {
                         type="text"
                         className="mr-sm-2"
                         placeholder="Search events"
+                        aria-label="Events search tool"
                     />
 
                     <Form.Control
                         size="sm"
                         as="select"
                         placeholder="Search by category"
+                        aria-label="Category search tool"
                         value={category}
                         onChange={(event) => setCategory(event.target.value)}
                     >

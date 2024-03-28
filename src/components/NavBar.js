@@ -42,6 +42,7 @@ const NavBar = (props) => {
         <NavLink
             className={styles.NavLink}
             activeClassName={styles.Active}
+            aria-label="Navigate to event create form"
             to="/events/create"
         >
             <i className="fa-regular fa-calendar-plus"></i>Add event
@@ -77,6 +78,7 @@ const NavBar = (props) => {
             <NavDropdown
                 id={styles.dropDownMenu}
                 onClick={() => setExpanded(!expanded)}
+                aria-label="Drop down menu that includes profile, contact and sign out links"
                 title={
                     <span>
                         <i className="fa-solid fa-bars"></i>
@@ -87,6 +89,7 @@ const NavBar = (props) => {
                     id={styles.dropdownItem}
                     as={Link}
                     className={styles.NavLink}
+                    aria-label="Navigate to user profile"
                     to={`/profiles/${currentUser?.profile_id}`}
                     onClick={() => setExpanded(!expanded)}
                 >
@@ -96,6 +99,7 @@ const NavBar = (props) => {
                     id={styles.dropdownItem}
                     as={Link}
                     className={styles.NavLink}
+                    aria-label="Navigate to contact create form"
                     to="/contact/create/"
                     onClick={() => setExpanded(!expanded)}
                 >
@@ -107,6 +111,7 @@ const NavBar = (props) => {
                     className={styles.NavLink}
                     to="/"
                     onClick={handleSignOut}
+                    aria-label="Sign out link"
                 >
                     <i className="fa-solid fa-person-through-window"></i>Sign out
                 </NavDropdown.Item>
@@ -174,11 +179,11 @@ const NavBar = (props) => {
                 want to see it again just refresh the page!
             </Modal.Body>
             <Modal.Footer>
-                <Button 
-                variant="secondary" 
-                onClick={handleClose}
-                aria-label="Close modal button"
-                className={`${btnStyles.Button} ${btnStyles.Purple}`}
+                <Button
+                    variant="secondary"
+                    onClick={handleClose}
+                    aria-label="Close modal button"
+                    className={`${btnStyles.Button} ${btnStyles.Purple}`}
                 >
                     Close
                 </Button>
@@ -190,7 +195,9 @@ const NavBar = (props) => {
     return (
         <Navbar expanded={expanded} className={styles.NavBar} bg="light" expand="md" fixed="top">
             <Container>
-                <NavLink to="/">
+                <NavLink to="/"
+                    aria-label="App logo that provides navigation to home page"
+                >
                     <Navbar.Brand>
                         <img src={logofav} alt="logo" height="95" />
                     </Navbar.Brand>
@@ -200,6 +207,7 @@ const NavBar = (props) => {
                     ref={ref}
                     onClick={() => setExpanded(!expanded)}
                     aria-controls="basic-navbar-nav"
+                    aria-label="Navbar toggle for nav links on mobile"
                 />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">

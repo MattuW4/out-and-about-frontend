@@ -86,7 +86,11 @@ const Event = (props) => {
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
-                        <Avatar src={profile_image} height={55} />
+                        <Avatar
+                            alt="Profile image"
+                            src={profile_image}
+                            height={55}
+                        />
                         {owner}
                     </Link>
                     <div className="d=flex align-items-center">
@@ -131,7 +135,9 @@ const Event = (props) => {
                         </OverlayTrigger>
                     )}
                     {attending_count}
-                    <Link to={`/events/${id}`}>
+                    <Link to={`/events/${id}`}
+                        aria-label="Link to navigate to comments on an event"
+                    >
                         <i className="fa-regular fa-comments" />
                     </Link>
                     {comments_count}

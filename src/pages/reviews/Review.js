@@ -39,7 +39,11 @@ const Event = (props) => {
                         <Media className="align-items-center space-between">
                             <Col m={2}>
                                 <Link to={`/profiles/${profile_id}`}>
-                                    <Avatar src={profile_image} height={55} />
+                                    <Avatar
+                                        alt="Profile image"
+                                        src={profile_image}
+                                        height={55}
+                                    />
                                     {owner}
                                 </Link>
                             </Col>

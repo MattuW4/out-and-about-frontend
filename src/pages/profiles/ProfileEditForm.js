@@ -91,6 +91,7 @@ const ProfileEditForm = () => {
                     onChange={handleChange}
                     name="content"
                     rows={7}
+                    aria-label="Enter user bio"
                 />
             </Form.Group>
 
@@ -107,7 +108,7 @@ const ProfileEditForm = () => {
                 Cancel
             </Button>
             <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
-            aria-label="Button to save edit to a user profile"
+                aria-label="Button to save edit to a user profile"
             >
                 Save
             </Button>
@@ -122,7 +123,11 @@ const ProfileEditForm = () => {
                         <Form.Group>
                             {image && (
                                 <figure>
-                                    <Image src={image} fluid />
+                                    <Image
+                                        alt="User profile image"
+                                        src={image}
+                                        fluid
+                                    />
                                 </figure>
                             )}
                             {errors?.image?.map((message, idx) => (

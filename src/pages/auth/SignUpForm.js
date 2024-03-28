@@ -131,6 +131,7 @@ const SignUpForm = () => {
                 className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
             >
                 <Image
+                    alt="Placeholder image"
                     className={`${appStyles.FillerImage}`}
                     src={"https://res.cloudinary.com/deoxxigyw/image/upload/v1709549497/rovgx8hfvpedlcbu3cdo.webp"}
                 />
