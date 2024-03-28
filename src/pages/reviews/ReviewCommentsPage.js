@@ -44,7 +44,7 @@ function ReviewCommentsPage() {
         };
 
         handleMount();
-    }, [currentUser, id]);
+    }, [currentUser, id, event]);
 
     return (
         <>
