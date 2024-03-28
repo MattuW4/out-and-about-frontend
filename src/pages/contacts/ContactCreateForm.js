@@ -64,10 +64,16 @@ const ContactCreateForm = () => {
                 </Alert>
             ))}
 
-            <Button className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}>
+            <Button 
+            className={`${btnStyles.Button} ${btnStyles.Purple}`} onClick={() => history.goBack()}
+            aria-label="Button to cancel creation of a contact message for admin"
+            >
                 Cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`} type="submit">
+            <Button 
+            className={`${btnStyles.Button} ${btnStyles.Purple} ${btnStyles.Form}`} type="submit"
+            aria-label="Button to send contact message to admin"
+            >
                 Send message
             </Button>
             

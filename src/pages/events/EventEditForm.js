@@ -165,11 +165,15 @@ function EventEditForm() {
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
                 onClick={() => history.goBack()}
+                aria-label="Button to cancel editing of an event form"
             >
-                cancel
+                Cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                save
+            <Button 
+            className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
+            aria-label="Button to save the editing of an event form"
+            >
+                Save
             </Button>
         </div>
     );

@@ -84,7 +84,10 @@ function ReviewCommentsPage() {
                                     ) : (
                                         <span>No reviews...yet!</span>
                                     )}
-                                    <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Purple}`} onClick={() => history.goBack()}>
+                                    <Button 
+                                    className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Purple}`} onClick={() => history.goBack()}
+                                    aria-label="Button to go back to review page"
+                                    >
                                         Back to the review page
                                     </Button>
                                 </Col>

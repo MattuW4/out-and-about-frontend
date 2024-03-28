@@ -73,6 +73,7 @@ function CommentCreateForm(props) {
                 className={`${btnStyles.Button} ${btnStyles.Purple} btn d-block ml-auto`}
                 disabled={!content.trim()}
                 type="submit"
+                aria-label="Button to submit comment create form"
             >
                 Submit
             </button>

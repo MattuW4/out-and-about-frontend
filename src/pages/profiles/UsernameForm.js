@@ -73,14 +73,16 @@ const UsernameForm = () => {
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Blue}`}
                             onClick={() => history.goBack()}
+                            aria-label="Button to cancel edit of username"
                         >
-                            cancel
+                            Cancel
                         </Button>
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Blue}`}
                             type="submit"
+                            aria-label="Button to submit edit of username"
                         >
-                            save
+                            Save
                         </Button>
                     </Form>
                 </Container>

@@ -94,6 +94,7 @@ function SignInForm() {
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Purple}`}
                             type="submit"
+                            aria-label="Sign in button"
                         >
                             Sign in
                         </Button>

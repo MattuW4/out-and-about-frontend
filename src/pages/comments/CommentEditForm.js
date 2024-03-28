@@ -55,14 +55,16 @@ function CommentEditForm(props) {
                     className={styles.Button}
                     onClick={() => setShowEditForm(false)}
                     type="button"
+                    aria-label="Button to cancel comment edit form"
                 >
                     Cancel
                 </button>
                 <button
                     className={styles.Button}
                     type="submit"
+                    aria-label="Button to save edit to comment form"
                 >
-                    Cave
+                    Save
                 </button>
             </div>
         </Form>

@@ -35,6 +35,7 @@ const Profile = (props) => {
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                             onClick={() => handleUnsubscribe(profile)}
+                            aria-label="Button to unsubscribe from a user profile"
                         >
                             Unsubscribe
                         </Button>
@@ -42,6 +43,7 @@ const Profile = (props) => {
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Black}`}
                             onClick={() => handleSubscribe(profile)}
+                            aria-label="Button to subscribe to a user profile"
                         >
                             Subscribe
                         </Button>

@@ -102,11 +102,14 @@ const ProfileEditForm = () => {
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
                 onClick={() => history.goBack()}
+                aria-label="Button to cancel edit to a user profile"
             >
-                cancel
+                Cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                save
+            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
+            aria-label="Button to save edit to a user profile"
+            >
+                Save
             </Button>
         </>
     );

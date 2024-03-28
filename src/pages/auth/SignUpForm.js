@@ -108,6 +108,7 @@ const SignUpForm = () => {
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Purple}`}
                             type="submit"
+                            aria-label="Sign up button"
                         >
                             Sign up
                         </Button>

@@ -92,15 +92,17 @@ function ProfilePage() {
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                                 onClick={() => handleUnsubscribe(profile)}
+                                aria-label="Button to unsubscribe from a user profile"
                             >
-                                unsubcribe
+                                Unsubcribe
                             </Button>
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Black}`}
                                 onClick={() => handleSubscribe(profile)}
+                                aria-label="Button to subscribe to a user profile"
                             >
-                                subscribe
+                                Subscribe
                             </Button>
                         ))}
                 </Col>

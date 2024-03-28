@@ -133,7 +133,7 @@ const NavBar = (props) => {
         <Modal
             {...props}
             size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
+            aria-label="Modal to display app information page"
             centered
             show={show}
             backdrop="static"
@@ -154,6 +154,7 @@ const NavBar = (props) => {
                 <NavLink
                     className={styles.NavLink}
                     activeClassName={styles.Active}
+                    aria-label="Sign up"
                     to="/signup"
                 >
                     <i className="fa-solid fa-user-pen"></i>
@@ -176,6 +177,7 @@ const NavBar = (props) => {
                 <Button 
                 variant="secondary" 
                 onClick={handleClose}
+                aria-label="Close modal button"
                 className={`${btnStyles.Button} ${btnStyles.Purple}`}
                 >
                     Close

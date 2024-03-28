@@ -157,10 +157,14 @@ function EventCreateForm() {
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Purple}`}
                 onClick={() => history.goBack()}
+                aria-label="Button to cancel creation of an event"
             >
                 Cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Purple}`} type="submit">
+            <Button 
+            className={`${btnStyles.Button} ${btnStyles.Purple}`} type="submit"
+            aria-label="Button to create event"
+            >
                 Create
             </Button>
         </div>

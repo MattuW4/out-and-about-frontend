@@ -17,7 +17,10 @@ const NotFound = () => {
           <Asset alt="page not found" src={NoResults} />
         </div>
         <div className={`text-center`}>
-          <Button className={`${btnStyles.Button} ${btnStyles.Purple}`}>
+          <Button 
+          className={`${btnStyles.Button} ${btnStyles.Purple}`}
+          aria-label="Return to homepage button"
+          >
             <Link className={styles.Link} to={"/"}>
               Click here to return to the Homepage
             </Link>
