@@ -138,10 +138,11 @@ const NavBar = (props) => {
         <Modal
             {...props}
             size="lg"
-            aria-label="Modal to display app information page"
+            aria-labelledby="Modal to display app information page"
             centered
             show={show}
             backdrop="static"
+            role="dialog"
             keyboard={false}
             onHide={handleClose}>
             <Modal.Header closeButton>
