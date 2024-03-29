@@ -243,7 +243,7 @@ The following manual tests were completed:
 | &check; | If a user has already reviewed an event a tool tip advises that they can’t review it again
 | &check; | Users receive a warning message if they try to submit a review without any comments
 | &check; | Review count increases by 1 on submission
-| &cross; | Average rating is recalculated on submission
+| &check; | Average rating is recalculated on submission
 | &check; | Users can read reviews left by other users on events they have attended
 
 | Status | **Profile Page - User Logged in**
