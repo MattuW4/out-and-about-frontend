@@ -84,7 +84,7 @@ The wireframes for the site were created in the software [Figma]( https://www.fi
 
 ![Events Page](images/event-page.jpg)
 ![Events Page](images/events-page.jpg)
-![Profile Page](images/signin-signup.jpg)
+![Profile Page](images/signin-sign-up.jpg)
 ![Reviews Page](images/event-review-create.jpg)
 
 </details><br/>
