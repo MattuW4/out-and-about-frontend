@@ -12,8 +12,12 @@ import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
 import DateFormatUtil from "../../utils/DateFormatUtil";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const Event = (props) => {
+
+    useRedirect('loggedOut')
+
     const {
         id,
         owner,

@@ -17,10 +17,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import { useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import btnStyles from "../../styles/Button.module.css";
 
 function ReviewCommentsPage() {
+
+    useRedirect('loggedOut')
+
     const { id } = useParams();
     const [event, setEvent] = useState({ results: [] });
 

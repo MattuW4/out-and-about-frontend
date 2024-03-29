@@ -8,11 +8,15 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Rating } from "react-simple-star-rating";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import btnStyles from "../../styles/Button.module.css";
 import { Card } from "react-bootstrap";
 
 function ReviewCreateForm(props) {
+
+    useRedirect('loggedOut')
+    
     const {
         event,
         setEvent,

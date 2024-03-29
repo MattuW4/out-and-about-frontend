@@ -18,11 +18,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
 
 
 function ReviewsPage({ message = "", filter = "" }) {
 
-    // const [reviews, setReviews] = useState({ results: [] });
+    useRedirect('loggedOut')
     const [events, setEvents] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
