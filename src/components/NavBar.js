@@ -217,7 +217,7 @@ const NavBar = (props) => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             to="/"
-                            onClick={() => setExpanded(!expanded)}
+                            // onClick={() => setExpanded(!expanded)}
                         >
                             <i className="fa-brands fa-space-awesome"></i>Home
                         </NavLink>

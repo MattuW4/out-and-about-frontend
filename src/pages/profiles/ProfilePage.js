@@ -34,7 +34,7 @@ function ProfilePage() {
     const { setProfileData, handleSubscribe, handleUnsubscribe } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
-    const is_owner = currentUser?.username;
+    const is_owner = currentUser?.username === profile?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -87,7 +87,10 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col lg={3} className="text-lg-right">
+            </Row>
+
+            <Row className="justify-content-center no-gutters my-3">
+                <div className="text-align-center">
                     {currentUser &&
                         !is_owner &&
                         (profile?.subscribing_id ? (
@@ -107,8 +110,13 @@ function ProfilePage() {
                                 Subscribe
                             </Button>
                         ))}
-                </Col>
-                {profile?.content && <Col className="p-3">{profile.content}</Col>}
+                </div>
+            </Row>
+
+            <Row className="justify-content-center no-gutters my-3">
+                <div>
+                    {profile?.content && <Col className="p-3">Bio: {profile.content}</Col>}
+                </div>
             </Row>
         </>
     );
