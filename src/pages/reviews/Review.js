@@ -1,4 +1,3 @@
-// import React from "react";
 import styles from "../../styles/Event.module.css";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -14,7 +13,7 @@ import { Rating } from "react-simple-star-rating";
 import DateFormatUtil from "../../utils/DateFormatUtil";
 import { useRedirect } from "../../hooks/useRedirect";
 
-const Event = (props) => {
+const Review = (props) => {
 
     useRedirect('loggedOut')
 
@@ -58,15 +57,11 @@ const Event = (props) => {
 
                             </Col>
                             <div>
-
-
-
                                 <Col m={4}>
                                     <span>
                                         {event_date && <Card.Text> Date: <DateFormatUtil event_date={event_date} /></Card.Text>}
                                     </span>
                                 </Col>
-
                                 <Col m={4}>
                                     <span className={`${styles.Title}`}>
                                         Reviews: {reviews_count}
@@ -120,4 +115,4 @@ const Event = (props) => {
     );
 };
 
-export default Event
+export default Review;
