@@ -3,14 +3,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "../NavBar";
 import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 
-test("renders NavBar", () => {
+test("renders NavBar by testing sign in", () => {
     render(
         <Router>
             <NavBar />
         </Router>
     );
 
-    // screen.debug();
     const signInLink = screen.getByRole("link", { name: "Sign in" });
     expect(signInLink).toBeInTheDocument();
 });
