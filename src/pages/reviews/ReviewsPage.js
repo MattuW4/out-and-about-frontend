@@ -1,25 +1,24 @@
+// React
 import  { useEffect, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
+import { useLocation } from "react-router";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+// CSS
 import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPage.module.css";
-import { useLocation } from "react-router";
+// Axios
 import { axiosReq } from "../../api/axiosDefaults";
-
+//Component
 import NoResults from "../../assets/no-results.webp";
-
 import Review from "./Review";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useRedirect } from "../../hooks/useRedirect";
-
 
 function ReviewsPage({ message = "", filter = "" }) {
 

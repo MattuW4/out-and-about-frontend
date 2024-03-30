@@ -6,7 +6,8 @@ import Button from "react-bootstrap/Button";
 import btnStyles from "../styles/Button.module.css";
 import { Card } from "react-bootstrap";
 
-const NotFound = () => {
+// Component to display 404 page
+const NotFound = () => {  
   return (
     <Card className={styles.Event}>
       <Card.Body>

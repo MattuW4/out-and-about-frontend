@@ -1,16 +1,20 @@
-import styles from "../../styles/Event.module.css";
+// React
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+// Component
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import DateFormatUtil from "../../utils/DateFormatUtil";
+// CSS
+import styles from "../../styles/Event.module.css";
+// Axios
+import { axiosRes } from "../../api/axiosDefaults";
 
-
+// Event component 
 const Event = (props) => {
     const {
         id,

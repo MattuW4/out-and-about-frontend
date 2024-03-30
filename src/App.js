@@ -1,8 +1,9 @@
-import styles from "./App.module.css";
-import NavBar from "./components/NavBar";
+// React
 import Container from 'react-bootstrap/Container';
 import { Route, Switch } from 'react-router-dom';
+// Axios
 import "./api/axiosDefaults";
+// Component
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import EventCreateForm from "./pages/events/EventCreateForm";
@@ -19,8 +20,9 @@ import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ReviewCommentsPage from "./pages/reviews/ReviewCommentsPage";
 import NotFound from "./components/NotFound";
-
-
+import NavBar from "./components/NavBar";
+// CSS
+import styles from "./App.module.css";
 
 function App() {
   const currentUser = useCurrentUser();

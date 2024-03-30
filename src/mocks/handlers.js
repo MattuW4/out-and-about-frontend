@@ -2,6 +2,7 @@ import { rest } from "msw";
 
 const baseURL = "https://oaa-app-2b3d894f937e.herokuapp.com/"
 
+// Runs mock to get a logged in user details for testing
 export const handlers = [
     rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => {
         return res(

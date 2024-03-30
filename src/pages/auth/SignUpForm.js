@@ -1,10 +1,6 @@
+// React
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
 import {
     Form,
     Button,
@@ -14,9 +10,19 @@ import {
     Container,
     Alert,
 } from "react-bootstrap";
+
+//CSS
+import styles from "../../styles/SignInUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+
+// Axios
 import axios from "axios";
+
+//Component
 import { useRedirect } from "../../hooks/useRedirect";
 
+// Sign up form used across site
 const SignUpForm = () => {
     useRedirect('loggedIn')
     const [signUpData, setSignUpData] = useState({

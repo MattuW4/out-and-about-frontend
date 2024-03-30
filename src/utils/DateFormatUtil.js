@@ -1,4 +1,4 @@
-
+// Utility component to format date when rendered 
 const DateFormatUtil = (props) => {
 
     const {event_date} = props

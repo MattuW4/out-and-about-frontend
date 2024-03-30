@@ -19,7 +19,8 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { removeTokenTimestamp } from "../utils/utils";
 import btnStyles from "../styles/Button.module.css";
 
-const NavBar = (props) => {
+// Component for NavBar
+const NavBar = (props) => {    
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
@@ -217,7 +218,6 @@ const NavBar = (props) => {
                             className={styles.NavLink}
                             activeClassName={styles.Active}
                             to="/"
-                            // onClick={() => setExpanded(!expanded)}
                         >
                             <i className="fa-brands fa-space-awesome"></i>Home
                         </NavLink>

@@ -9,6 +9,7 @@ export const SetProfileDataContext = createContext();
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
+// Context to fetch and set profile data
 export const ProfileDataProvider = ({ children }) => {
     const [profileData, setProfileData] = useState({
 

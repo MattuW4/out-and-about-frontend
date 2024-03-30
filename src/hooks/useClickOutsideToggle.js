@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+// Function to close drop down menu when clicked outside of
 export const useClickOutsideToggle = () => {
     const [expanded, setExpanded] = useState(false);
     const ref = useRef(null);

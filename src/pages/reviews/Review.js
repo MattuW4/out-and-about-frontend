@@ -1,4 +1,4 @@
-import styles from "../../styles/Event.module.css";
+// React
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,11 +7,14 @@ import Media from "react-bootstrap/Media";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Row from "react-bootstrap/Row";
 import Tooltip from "react-bootstrap/Tooltip";
+// Component
 import Avatar from "../../components/Avatar";
-import btnStyles from "../../styles/Button.module.css";
 import { Rating } from "react-simple-star-rating";
 import DateFormatUtil from "../../utils/DateFormatUtil";
 import { useRedirect } from "../../hooks/useRedirect";
+// CSS
+import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/Event.module.css";
 
 const Review = (props) => {
 

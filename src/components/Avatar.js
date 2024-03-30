@@ -1,6 +1,7 @@
 import styles from '../styles/Avatar.module.css'
 
-const Avatar = ({ src, height = 45, text }) => {
+// Component to display user profile picture
+const Avatar = ({ src, height = 45, text }) => {    
     return (
         <span>
             <img

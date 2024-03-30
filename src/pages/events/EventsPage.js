@@ -1,24 +1,23 @@
+// React
 import { useEffect, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
+import { useLocation } from "react-router";
+// CSS
 import appStyles from "../../App.module.css";
 import styles from "../../styles/EventsPage.module.css";
-import { useLocation } from "react-router";
+// Axios
 import { axiosReq } from "../../api/axiosDefaults";
-
+// Component
 import NoResults from "../../assets/no-results.webp";
-
 import Event from "./Event";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 
 function EventsPage({ message, filter = "" }) {
 

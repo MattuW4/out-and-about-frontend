@@ -1,17 +1,18 @@
+// React
 import { useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-
+import { Card } from "react-bootstrap";
+// CSS
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+// Axios
 import { axiosRes } from "../../api/axiosDefaults";
+// Component
 import { Rating } from "react-simple-star-rating";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useRedirect } from "../../hooks/useRedirect";
-
-import btnStyles from "../../styles/Button.module.css";
-import { Card } from "react-bootstrap";
 
 function ReviewCreateForm(props) {
 

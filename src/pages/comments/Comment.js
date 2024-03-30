@@ -1,13 +1,18 @@
+// React
 import { useState } from "react";
 import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom";
+// CSS
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
+//Axios
 import { axiosRes } from "../../api/axiosDefaults";
+//Component
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
 
+// Component to display user profile picture
 const Comment = (props) => {
     const {
         profile_id,

@@ -1,5 +1,5 @@
+// React
 import { useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -7,19 +7,19 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
-
+import { useHistory } from "react-router";
+// Component
 import Upload from "../../assets/upload.webp";
-
+import Asset from "../../components/Asset";
+import { useRedirect } from "../../hooks/useRedirect";
+// CSS
 import styles from "../../styles/EventCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
-import Asset from "../../components/Asset";
+// Axios
 import { axiosReq } from "../../api/axiosDefaults";
 
-import { useHistory } from "react-router";
-import { useRedirect } from "../../hooks/useRedirect";
-
+// Event create form
 function EventCreateForm() {
     useRedirect('loggedOut');
     const [errors, setErrors] = useState({});

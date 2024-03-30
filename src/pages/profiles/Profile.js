@@ -1,9 +1,12 @@
+// React
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+// CSS
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
+// Component
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import Button from "react-bootstrap/Button";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {

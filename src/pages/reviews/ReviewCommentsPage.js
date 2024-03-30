@@ -1,25 +1,24 @@
+// React 
 import { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Media from "react-bootstrap/Media";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
+// Axios
 import { axiosReq } from "../../api/axiosDefaults";
-
+// Component
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
-import styles from "../../styles/Comment.module.css";
 import { Rating } from "react-simple-star-rating";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
-
+// CSS
 import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/Comment.module.css";
 
 function ReviewCommentsPage() {
 

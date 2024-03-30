@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { axiosReq } from "../api/axiosDefaults";
 
+// Fetch data utility component
 export const fetchMoreData = async (resource, setResource) => {
     try {
         const { data } = await axiosReq.get(resource.next);
@@ -18,6 +19,7 @@ export const fetchMoreData = async (resource, setResource) => {
     }
 };
 
+// Subscription helper component
 export const subscribeHelper = (profile, clickedProfile, subscribing_id) => {
     return profile.id === clickedProfile.id
         ? // This is the profile I clicked on,
@@ -36,6 +38,7 @@ export const subscribeHelper = (profile, clickedProfile, subscribing_id) => {
             profile;
 };
 
+// Unsubscribe helper component
 export const unsubscribeHelper = (profile, clickedProfile) => {
     return profile.id === clickedProfile.id
         ? {
@@ -48,15 +51,18 @@ export const unsubscribeHelper = (profile, clickedProfile) => {
             : profile;
 }
 
+// Set token time stamp component
 export const setTokenTimestamp = (data) => {
     const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
     localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
 };
 
+// Refresh token component
 export const shouldRefreshToken = () => {
     return !!localStorage.getItem("refreshTokenTimestamp");
 };
 
+// Remove time stamp component
 export const removeTokenTimestamp = () => {
     localStorage.removeItem("refreshTokenTimestamp");
 };
