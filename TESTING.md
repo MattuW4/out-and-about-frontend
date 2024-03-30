@@ -295,9 +295,14 @@ Google Lighthouse in Chrome Developer Tools was used to test the application. Th
 
 ![Lighthouse dev result](images/lighthouse.jpg)
 
-The best practices were noted to be lower in comparison to when tested using the chrome plug in
+Lighthouse output where chrome extension used:
 
 ![Lighthouse plugin result](images/perf-plug.jpg)
+
+The best practices were noted to be lower in comparison to when tested using the chrome plug in. Consulting available resources the suggested explanation for the discrepency might be due to a number of factors, such as internet connection speed or potentially the time for chrome to start and run being included. There is not a conclusive rational for this and after consulting with tutor support the advice was that Lighthouse testing is only ever a guide and because the performance and functionality of the site is not compromised then this is to be allowed for however, future solutions would be implemented to fully address this discrepency and ensure consistency, where possible.
+
+
+
 It was noted that in the dev tools test that the blocked third party cookies were identified as an issue. It is understood that this is something being introduced for chrome recently. Further to this, a 401 error is raised which is understood to be as a result of lighthouse trying to access restricted pages in the API without authorisation. It was also noted that the ‘role=”dialog” in the modal element was triggering an inaccessible error name. Aria-labelby was added but the issue persisted. Wave was also used to explore the accessibility but this was not an issue identified in that platform. Wave identified missing name tags that had not been created or were inaccessible so aria-labels were added. The contrast of the buttons was also improved across the app. An approach to improve performance was attempted by implementing a file conversion on the field model in the API but this caused further issues and so the approach was reverted. 
 
 ### Peer/user Review
