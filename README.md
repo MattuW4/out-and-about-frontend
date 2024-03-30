@@ -8,7 +8,10 @@ Out and about provides an interactive platform to create, view, edit and delete 
 
 This fictional site was created for my 5th Portfolio Project (Advanced Front End) - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://www.codeinstitute.net).
 
-[View live site here]( https://oaa-react-app-5abadda9e24d.herokuapp.com/)
+## Links to Deployed Project
+
+  + Deployed project Heroku link: [Deployed Out & About API]( https://oaa-react-app-5abadda9e24d.herokuapp.com/)
+  + Back end GitHub repo: [Out & About Back End](https://github.com/MattuW4/out-and-about-backend)
 
 ![Responsive design](images/air.jpg)
 
@@ -335,7 +338,7 @@ This is a reusable alert component to appear across the app in response to error
 * [React.js](https://en.wikipedia.org/wiki/React_(software)) 
 
 ## Frameworks and Software
-* [React Bootstrap](https://react-bootstrap.github.io/) 
+* [React Bootstrap](https://react-bootstrap.github.io/) - used to style app
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) 
 * [Figma]( https://www.figma.com)
 * [Github](https://github.com/) 
@@ -353,7 +356,7 @@ This is a reusable alert component to appear across the app in response to error
 
 ## Libraries
 
-* [NPM React-star-rating](https://www.npmjs.com/package/react-simple-star-rating) 
+* [NPM React-star-rating](https://www.npmjs.com/package/react-simple-star-rating) - used to create star rating
 
 # Testing
 
