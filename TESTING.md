@@ -338,6 +338,14 @@ Solution: Consulted tutor support who advised that there wasn’t an apparent re
 
 Solution: change links to Nav.links in order to enable react to recognise the prop on the DOM element and the app render.
 
+9. Incompatible version of node installed caused app not to launch
+
+Solution: In terminal add nvm install 16 && nvm use 16 before npm start to launch locally
+
+10. There were two instances noted that when returning to an instance of the site that had not been signed out from and closed that when a user went to login as they were only presented with unauthenticated views, that they were unable to login and were redirected to the homepage. If the page was refreshed then the previous instance of a logged in user would be presented, despite this not necessarily being the same user.
+
+Solution: liaising with tutor support it was suggested that this would be due to to the refresh token being valid for 24hrs. If a user did not log out when leaving a page then there might be a disconnet between the front and back end apps, as the front end defaults to an unauthenticated presentation whilst the backend remains signed in with the valid tokens. This bug was not replicable by testing the logging in/out or closing the page and returning. It was noted that if a user logged out and the cookies were deleted from the console the issue was not repeated so it appears that this is confirmed as linked to the refresh tokens not expiring and causing the disconnect or this potentially occurs if something is changed in the project workpspace/repo but the rendered page not refreshed and updated. It was noted too late for further testing but attempts to fully programme against the possibility of this would be implemented in the future.
+
 ### Unresolved
 1. Eslint React Dom deprecation 
 
@@ -348,8 +356,6 @@ Covered in Es lint earlier in the testing.md.
 2. Having implemented the date formatter utility when creating or editing an event the form would flag that the date was in the incorrect format for react i.e. not YYYY-MM-DD. 
 
 Solution: This error being flagged by the overlay tool has been left as a user can still use the default data picker to select their preferred date and there is no issue writing or calling this information from the database. A complete fix will be pursued in future when there is more time to improve the user experience.
-
-
 
 3. Attempted to add trigger overlay to the comment function taken from the Moments walkthrough if a comment field was left blank but this had no effect. Felt not to be problematic and could be left in the final app as it was obvious to a user that no comment was being written without text content. 
 

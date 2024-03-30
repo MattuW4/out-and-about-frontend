@@ -23,12 +23,12 @@ This fictional site was created for my 5th Portfolio Project (Advanced Front End
     * [Wireframes](<#wireframes>)
     * [User Stories](<#user-stories>)
     * [Site Structure](<#site-structure>)
-    * [Design](<#design- >)
+    * [Design](<#design>)
 
-- [Existing Features](#features)
+- [Existing Features](#existing-features)
   * [Navigation and UX](#navigation-and-ux)
   * [Homepage](#homepage)
-  * [What’s on](#what’s-on)
+  * [What’s on](#whats-on)
   * [Comments](#comments)
   * [Reviews](#reviews)
   * [Profile Page](#profile-page)
@@ -39,7 +39,7 @@ This fictional site was created for my 5th Portfolio Project (Advanced Front End
 
 - [Front end technologies](<#front-end-technologies>)
   * [Languages](<#languages>)
-  * [Frameworks & Software](<#frameworks-software>)
+  * [Frameworks and Software](<#frameworks-and-software>)
   * [Libraries](<#libraries>)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -334,7 +334,7 @@ This is a reusable alert component to appear across the app in response to error
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript) 
 * [React.js](https://en.wikipedia.org/wiki/React_(software)) 
 
-## Frameworks & Software
+## Frameworks and Software
 * [React Bootstrap](https://react-bootstrap.github.io/) 
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) 
 * [Figma]( https://www.figma.com)
